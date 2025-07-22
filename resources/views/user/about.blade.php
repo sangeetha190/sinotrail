@@ -15,199 +15,290 @@
 
 <body>
     <!-- preloader start-->
-    @include('user.layouts.loader')
+    {{-- @include('user.layouts.loader') --}}
     <!-- preloader start end-->
+
+
+
+    <!--header start-->
+    @include('user.layouts.header', ['categories' => $categories])
+    <!--header end-->
+
+    <!-- scrollUp Start Here -->
+    <a href="#wrapper" data-type="section-switch" class="scrollUp">
+        <i class="fas fa-angle-double-up"></i>
+    </a>
+    <!-- scrollUp End Here -->
     <!--page start-->
     <div class="page">
 
         <!--header start-->
         @include('user.layouts.header', ['categories' => $categories])
         <!--header end-->
-        <!-- page-title -->
-        <div class="ttm-page-title-row">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="d-flex flex-column justify-content-center align-items-center">
-                            <div class="page-title-heading">
-                                <h1 class="title">About Us</h1>
-                            </div>
-                            <div class="breadcrumb-wrapper mt-2">
-                                <span class="mr-1"><i class="ti ti-home"></i></span>
-                                <a title="Homepage" href="{{ route('home') }}">Home</a>
-                                <span class="ttm-bread-sep">&nbsp;/&nbsp;</span>
-                                <span class="ttm-textcolor-skincolor">About Us</span>
+
+        <div id="wrapper" class="wrapper">
+
+
+
+            <!-- Inner Page Banner Area Start Here -->
+            <section class="inner-page-banner bg-common inner-page-top-margin"
+                style="background-image: url({{ asset('user/assets/img/about/br.png') }}); background-size: cover; background-position: right; background: #016db2;"
+                data-aos="fade-down" data-aos-duration="1000" data-aos-delay="100">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="breadcrumbs-area" data-aos="fade-up" data-aos-duration="1000"
+                                data-aos-delay="300">
+                                <h1>About Us</h1>
+                                <ul>
+                                    <li>
+                                        <a href="{{ route('home') }}">Home</a>
+                                    </li>
+                                    <li>About 2</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div><!-- page-title end-->
-        <!--site-main start-->
-        <div class="site-main">
-
-            <!--history-section-->
-            <section class="history-section clearfix">
-                <div class="container">
-                    <!-- row -->
-                    <div class="row">
-                        <div class="col-lg-7 col-sm-12">
-                            <div class="pr-70 res-991-pr-0">
-                                <!-- section title -->
-                                <div class="section-title clearfix">
-                                    <div class="title-header">
-                                        <h5>About Us</h5>
-                                        <h2 class="title"> Aqua Water Purifiers</h2>
-                                    </div>
-                                    <div class="m-0 mb-0">At Aqua Water Purifiers, we are committed to delivering clean,
-                                        safe, and healthy drinking water for every home and business. Led by Mr.
-                                        Sridhar, Senior Sales and Service Executive, our team specializes in all-brand
-                                        water purifier sales and services, ensuring top-quality solutions for our
-                                        customers.
-
-                                        Our product range includes advanced RO purifiers, UV filtration systems, and
-                                        alkaline water solutions, designed to meet diverse needs. With cutting-edge
-                                        technology and stringent quality checks, we guarantee superior performance and
-                                        durability. Our eco-friendly systems are energy-efficient and sustainable,
-                                        contributing to a healthier environment.
-
-                                        Customer satisfaction is our priority. We provide expert after-sales service,
-                                        including installation, maintenance, and repairs, ensuring optimal performance.
-                                        Trust Aqua Water Purifiers for reliable water purification—because your health
-                                        and safety matter!</div>
-                                </div><!-- section title end -->
-
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="ttm-col-bgcolor-yes ttm-bg ttm-bgcolor-grey spacing-1">
-                                            <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
-                                            <div class="layer-content">
-                                                <!--featured-icon-box-->
-                                                <div class="featured-icon-box style2">
-                                                    <div class="featured-icon">
-                                                        <div
-                                                            class="ttm-icon ttm-icon_element-fill ttm-icon_element-background-skincolor ttm-icon_element-color-white ttm-icon_element-size-sm ttm-icon_element-style-rounded">
-                                                            <i class="fa fa-phone"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="featured-content">
-                                                        <div class="featured-desc">
-                                                            <p>Contact Us</p>
-                                                        </div>
-                                                        <div class="featured-title">
-                                                            <a href="tel:919047772117" class="p-0">
-                                                                <h5>+91 90477 72117</h5>
-                                                            </a>
-
-                                                        </div>
-                                                    </div>
-                                                </div><!-- featured-icon-box end-->
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="ttm-col-bgcolor-yes ttm-bg ttm-bgcolor-grey spacing-1">
-                                            <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
-                                            <div class="layer-content">
-                                                <!--featured-icon-box-->
-                                                <div class="featured-icon-box style2">
-                                                    <div class="featured-icon">
-                                                        <div
-                                                            class="ttm-icon ttm-icon_element-fill ttm-icon_element-background-skincolor ttm-icon_element-color-white ttm-icon_element-size-sm ttm-icon_element-style-rounded">
-                                                            <i class="fa-solid fa-envelope text-white me-2"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="featured-content">
-                                                        <div class="featured-desc">
-                                                            <p>Email Us:</p>
-                                                        </div>
-                                                        <div class="featured-title">
-                                                            <h5>aquawaterpurifierspondicherry@gmail.com</h5>
-                                                        </div>
-                                                    </div>
-                                                </div><!-- featured-icon-box end-->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pt-35">
-                                    <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-skincolor"
-                                        href="{{ route('contact') }}">Contact us!</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 col-xs-12">
-                            <!-- ttm_single_image-wrapper -->
-                            <div class="ttm_single_image-wrapper position-relative ml-15 res-991-ml-0 res-991-mt-30">
-                                <img class="img-fluid" src="{{ asset('user/assets/images/about_imgs.png') }}"
-                                    alt="about_image" style="border-radius:10px">
-
-                            </div><!-- ttm_single_image-wrapper end -->
-                        </div>
-                    </div><!-- row end-->
                 </div>
             </section>
-            <!-- history-section end -->
+            <!-- Inner Page Banner Area End Here -->
 
-            <!-- fid-section -->
-            {{-- <section class="fid-section ttm-bg ttm-bgcolor-skincolor clearfix mb-4">
-                <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
+
+
+            <!-- About Us Start Here -->
+            <section class="about-wrap-layout5">
                 <div class="container">
-                    <div class="row ttm-facts-colum-sep">
-                        <div class="col-md-3 col-sm-3 co-xs-12">
-                            <div class="ttm-fid inside ttm-fid-view-topicon">
-                                <div class="ttm-fid-icon-wrapper"><i class="themifyicon ti-cup"></i></div>
-                                <div class="ttm-fid-contents">
-                                    <h4><span data-appear-animation="animateDigits" data-from="0" data-to="201"
-                                            data-interval="10" data-before="" data-before-style="sup" data-after=""
-                                            data-after-style="sub">201
-                                        </span>
-                                    </h4>
-                                    <h3 class="ttm-fid-title"><span>Award Shows<br></span></h3>
-                                </div>
+                    <div class="row">
+                        <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+                            <div class="about-box-layout13">
+                                <h2 class="item-title">
+                                    Your Trusted <span>Medical Center & Laboratory</span>
+                                </h2>
+                                <p>
+                                    Sinoatrial Medical Technologies is a young and professional company located in MGR
+                                    Nagar and K.K. Nagar, Chennai. As one of India's leading industrial and production
+                                    centers, Chennai provides the perfect environment for innovation and excellence. We
+                                    are committed to delivering high-quality hospital equipment, with a strong focus on
+                                    customer satisfaction and continuous growth.
+                                </p>
+                                <p>
+                                    Our product range includes SpO2 sensors, medical cables, and various medical
+                                    equipment accessories. These products are widely used across corporate hospitals in
+                                    India. We continuously develop new and innovative solutions that meet the latest
+                                    safety and quality standards in healthcare.
+                                </p>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-3 co-xs-12">
-                            <div class="ttm-fid inside ttm-fid-view-topicon">
-                                <div class="ttm-fid-icon-wrapper"><i class="themifyicon ti-user"></i></div>
-                                <div class="ttm-fid-contents">
-                                    <h4><span data-appear-animation="animateDigits" data-from="0" data-to="100"
-                                            data-interval="10" data-before="" data-before-style="sup" data-after=""
-                                            data-after-style="sub">100+
-                                        </span>
-                                    </h4>
-                                    <h3 class="ttm-fid-title"><span>Happy Customer<br></span></h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-sm-3 co-xs-12">
-                            <div class="ttm-fid inside ttm-fid-view-topicon">
-                                <div class="ttm-fid-icon-wrapper"><i class="themifyicon ti-shopping-cart-full"></i>
-                                </div>
-                                <div class="ttm-fid-contents">
-                                    <h4><span data-appear-animation="animateDigits" data-from="0" data-to="124"
-                                            data-interval="10" data-before="" data-before-style="sup" data-after=""
-                                            data-after-style="sub">124
-                                        </span>
-                                    </h4>
-                                    <h3 class="ttm-fid-title"><span>Store Locations<br></span></h3>
+                        <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
+                            <div class="about-box-layout14">
+                                <div class="item-video">
+                                    <img src="{{ asset('user/assets/img/about/1.png') }}" alt="about">
+                                    <a class="play-btn popup-youtube" href="#">
+                                        <i class="flaticon-play-button"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section> --}}
-            <!-- fid-section end -->
+            </section>
+            <!-- About Us Area End Here -->
+
+            <!-- Progress Area Start Here -->
+            <section class="progress-wrap-layout2 bg-overlay bg-overlay-primary80 bg-common parallaxie bg-themeblue">
+                <div class="container">
+                    <div class="row">
+                        <div class="progress-box-layout2 col-md-4" data-aos="fade-up" data-aos-delay="0"
+                            data-aos-duration="1000">
+                            <div class="inner-item">
+                                <div class="counting-text counter" data-num="59">59</div>
+                                <p>Health Sections</p>
+                            </div>
+                        </div>
+                        <div class="progress-box-layout2 col-md-4" data-aos="fade-up" data-aos-delay="200"
+                            data-aos-duration="1000">
+                            <div class="inner-item">
+                                <div class="counting-text counter" data-num="4709">4709</div>
+                                <p>Happy Patients</p>
+                            </div>
+                        </div>
+                        <div class="progress-box-layout2 col-md-4" data-aos="fade-up" data-aos-delay="400"
+                            data-aos-duration="1000">
+                            <div class="inner-item">
+                                <div class="counting-text counter" data-num="128">128</div>
+                                <p>Quality Doctors</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Progress Area End Here -->
+
+            <!-- Why Choose Area Start Here -->
+            <section class="why-choose-wrap-layout1">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="why-choose-box-layout1 col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+                            <h2 class="item-title" data-aos="fade-up" data-aos-delay="0">Why People Choose Us?</h2>
+                            <p class="sub-title" data-aos="fade-up" data-aos-delay="100">
+                                We are committed to transforming healthcare delivery through exceptional product
+                                quality, innovation, and service excellence.
+                            </p>
+
+                            <div class="choose-list-layout1" data-aos="fade-up" data-aos-delay="200">
+                                <div class="panel-group" id="accordion">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading active">
+                                            <div class="panel-title">
+                                                <a aria-expanded="false" class="accordion-toggle" data-toggle="collapse"
+                                                    data-parent="#accordion" href="#collapseOne">OUR VISION</a>
+                                            </div>
+                                        </div>
+                                        <div aria-expanded="false" id="collapseOne" role="tabpanel"
+                                            class="panel-collapse collapse show">
+                                            <div class="panel-body">
+                                                <p>To be passionate in providing the best medical accessories and have
+                                                    our products in every hospital globally.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">
+                                                <a aria-expanded="false" class="accordion-toggle collapsed"
+                                                    data-toggle="collapse" data-parent="#accordion"
+                                                    href="#collapseTwo">OUR MISSION</a>
+                                            </div>
+                                        </div>
+                                        <div aria-expanded="false" id="collapseTwo" role="tabpanel"
+                                            class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <p>To provide unimaginable quality, superior customer service, and
+                                                    exclusive products at affordable prices.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">
+                                                <a aria-expanded="false" class="accordion-toggle collapsed"
+                                                    data-toggle="collapse" data-parent="#accordion"
+                                                    href="#collapseThree">INNOVATION</a>
+                                            </div>
+                                        </div>
+                                        <div aria-expanded="false" id="collapseThree" role="tabpanel"
+                                            class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <p>SINOATRIAL always encourages employees to take risks and innovate in
+                                                    the performance of their jobs.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
+                            <img src="{{ asset('user/assets/img/about/2.png') }}" alt="about" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Why Choose Area End Here -->
+
+            <!-- Blog and Testimonial Area Start Here -->
+            <section class="both-side-half-bg w-100 bg-themeblue py-5" data-aos="fade-up">
+                <div class="single-item bg-common container"
+                    data-bg-image="{{ asset('user/assets/img/figure/figure9.png') }}" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div class="section-heading heading-light heading-layout5 text-center" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <h2>Testimonials</h2>
+                        <div id="owl-nav3" class="owl-nav-layout2">
+                            <span class="rt-prev">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="rt-next">
+                                <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="rc-carousel nav-control-layout7" data-loop="true" data-items="4" data-margin="30"
+                        data-autoplay="false" data-autoplay-timeout="5000" data-custom-nav="#owl-nav3"
+                        data-smart-speed="2000" data-dots="false" data-nav="false" data-nav-speed="false"
+                        data-r-x-small="1" data-r-x-small-nav="true" data-r-x-small-dots="false" data-r-x-medium="1"
+                        data-r-x-medium-nav="false" data-r-x-medium-dots="false" data-r-small="1"
+                        data-r-small-nav="false" data-r-small-dots="false" data-r-medium="1"
+                        data-r-medium-nav="false" data-r-medium-dots="false" data-r-large="1"
+                        data-r-large-nav="false" data-r-large-dots="false" data-r-extra-large="1"
+                        data-r-extra-large-nav="false" data-r-extra-large-dots="false">
+
+                        <!-- Testimonial 1 -->
+                        <div class="item" data-aos="fade-up" data-aos-delay="300">
+                            <div class="testmonial-box-layout2 text-center">
+                                <h4 class="item-title">Arun<span><br> Biomedical Engineer</span></h4>
+                                <p>"I have been using SINOATRIAL patient monitors and ECG machines for the past few
+                                    years. The products are up to the mark and even better than those of competitors."
+                                </p>
+                                <ul class="rating">
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="item" data-aos="fade-up" data-aos-delay="400">
+                            <div class="testmonial-box-layout2 text-center">
+                                <h4 class="item-title">Dr. Ravi<span><br> Anesthesiologist</span></h4>
+                                <p>"The SINOATRIAL E-Flo Anesthesia Workstation is extremely useful during critical
+                                    surgeries. I’ve been using their products for 20 years — international quality at an
+                                    Indian price."</p>
+                                <ul class="rating">
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="item" data-aos="fade-up" data-aos-delay="500">
+                            <div class="testmonial-box-layout2 text-center">
+                                <h4 class="item-title">Dr. Balu<span><br> Surgeon</span></h4>
+                                <p>"We’ve been using the EFLO 6D anesthesia workstation for 3 months and completed over
+                                    60 procedures, including major surgeries. Our anesthetist is fully satisfied with
+                                    the performance and service."</p>
+                                <ul class="rating">
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- Blog and Testimonial Area End Here -->
+
+
+
+            <!--footer start-->
+            @include('user.layouts.footer')
+            <!--footer end-->
         </div>
-        <!--site-main end-->
-        <!--footer start-->
-        @include('user.layouts.footer')
-        <!--footer end-->
-    </div>
-    <!-- page end -->
-    <!-- Javascript -->
-    @include('user.layouts.script')
+        <!-- page end -->
+        <!-- Javascript -->
+        @include('user.layouts.script')
 </body>
 
 </html>

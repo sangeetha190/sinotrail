@@ -10,158 +10,112 @@
 
     }
 
-    li.active {
-        background-color: #2457aa;
-
-    }
-
     li.active a {
-        color: white !important;
+        /* background-color: #2457aa; */
+        color: #2457aa !important;
+        font-weight: 700 !important;
     }
+
+    /* li.active a {
+            color: white !important;
+        } */
 </style>
-<!--header start-->
-<header id="masthead" class="header ttm-header-style-01">
-    <!-- header_main -->
-    <div class="header_main">
+<!-- Header Area Start Here -->
+<header id="header_1">
+    <div class="header-top-bar bg-primary100 d-none d-md-block">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-sm-3 col-3 order-1">
-                    <!-- site-branding -->
-                    <div class="site-branding">
-                        <a class="home-link" href="{{ route('home') }}" title="Fixfellow" rel="home">
-                            <img id="logo-img" class="img-center"
-                                src="{{ asset('user/assets/images/logo/aqua-color.png') }}" alt="aqua water purifier">
-                        </a>
-                    </div><!-- site-branding end -->
+                <div class="col-xl-8 col-lg-9 col-md-12 col-12 header-contact-layout3">
+                    <ul>
+
+                        <li>
+                            <i class="fas fa-phone"></i>Call: 044-4542 8844
+                        </li>
+                        <li>
+                            <i class="far fa-clock"></i>Mon - Fri:
+                            9.00am - 11.00pm
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
-                    <!-- header_search -->
-                    {{-- <div class="header_search">
-                                <div class="header_search_content">
-                                    <div id="search_block_top" class="search_block_top">
-                                        <form id="searchbox" method="get" action="#">
-                                            <input class="search_query form-control" type="text"
-                                                id="search_query_top" name="s"
-                                                placeholder="Search For Shopping...." value="">
-                                            <div class="categories-block">
-                                                <select id="search_category" name="search_category"
-                                                    class="form-control">
-                                                    <option value="all">All Categories</option>
-                                                    <option value="Categories 1">Categories 1</option>
-                                                    <option value="Categories 2">Categories 2</option>
-                                                    <option value="Categories 3">Categories 3</option>
-                                                </select>
-                                            </div>
-                                            <button type="submit" name="submit_search"
-                                                class="btn btn-default button-search"><i
-                                                    class="fa fa-search"></i></button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div> --}}
-                    <!-- header_search end -->
-                </div>
-                <div
-                    class="col-lg-3 col-9 order-lg-3 order-2 text-lg-left text-right d-flex flex-row align-items-center justify-content-end">
-                    <!-- header_extra -->
-                    <div class="header_extra d-flex flex-row align-items-center justify-content-end">
-
-                        <div class="cart">
-                            <div class="dropdown_link d-flex flex-row align-items-center justify-content-end">
-                                <div
-                                    class="user_zone_block d-flex flex-row align-items-center justify-content-end ml-auto my-0">
-                                    <div class="icon"> <i class="fa fa-phone"></i></div>
-                                    <a href="tel:+919047772117" class="call-icon mx-2 text-white">
-                                        +91 90477 72117
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <!-- header_extra end -->
+                <div class="col-xl-4 col-lg-3 col-md-12 col-12 header-social-layout2">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-pinterest"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-skype"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-    <!-- haeder-main end -->
-    <!-- site-header-menu -->
-    <div id="site-header-menu" class="site-header-menu ttm-bgcolor-white clearfix">
-        <div class="site-header-menu-inner stickable-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="main_nav_content d-flex flex-row justify-content-between">
-                            <div class="cat_menu_container">
-                                <a href="#" class="cat_menu d-flex flex-row align-items-center">
-                                    <div class="cat_icon"><i class="fa fa-bars"></i></div>
-                                    <div class="cat_text"><span>Shop by</span>
-                                        <h4>Categories</h4>
-                                    </div>
-                                </a>
-                                <ul class="cat_menu_list menu-vertical">
-                                    <li><a href="#" class="close-side"><i class="fa fa-times"></i></a>
-                                    </li>
-                                    <li class="{{ request()->routeIs('product') ? 'active' : '' }}">
-                                        <a href="{{ route('product') }}" class="text-uppercase">All
-                                            Categories</a>
-                                    </li>
-                                    @foreach ($categories as $category)
-                                        <li class="{{ request()->segment(2) == $category->name ? 'active' : '' }}">
-                                            <a href="{{ route('category.products', $category->name) }}"
-                                                class="text-uppercase">{{ $category->name }}</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            <!--site-navigation -->
-                            <div id="site-navigation" class="site-navigation">
-                                <div class="btn-show-menu-mobile menubar menubar--squeeze">
-                                    <span class="menubar-box">
-                                        <span class="menubar-inner"></span>
-                                    </span>
-                                </div>
-                                <!-- menu -->
-                                <nav class="menu menu-mobile" id="menu">
-                                    <ul class="nav">
-                                        <li class="{{ request()->routeIs('home') ? 'active' : '' }}">
-                                            <a href="{{ route('home') }}">Home</a>
-                                        </li>
+    <div class="header-menu-area header-menu-layout4">
+        <div class="container">
+            <div class="row no-gutters d-flex align-items-center">
+                <div class="col-lg-3 logo-area-layout1">
+                    <a href="{{ route('home') }}" class="temp-logo">
+                        <img src=" {{ asset('user/assets/img/logo.png') }}" alt="logo" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-lg-7 possition-static">
+                    <div class="template-main-menu">
+                        <nav id="dropdown">
+                            <ul>
+                                <li class="{{ request()->routeIs('home') ? 'active' : '' }}">
+                                    <a href="{{ route('home') }}">Home</a>
+                                </li>
+                                <li class="{{ request()->routeIs('about') ? 'active' : '' }}">
+                                    <a href="{{ route('about') }}">About</a>
+                                </li>
+                                <li class="{{ request()->routeIs('service') ? 'active' : '' }}">
+                                    <a href="{{ route('service') }}">Service</a>
+                                </li>
+                                <li
+                                    class="{{ request()->routeIs('product') || request()->routeIs('category.products') || request()->routeIs('category.allproducts') || request()->routeIs('product') ? 'active' : '' }}">
+                                    <a href="{{ route('product') }}">Product</a>
+                                </li>
+                                <li class="{{ request()->routeIs('gallery') ? 'active' : '' }}">
+                                    <a href="{{ route('gallery') }}">Gallery</a>
+                                </li>
+                                <li class="{{ request()->routeIs('contact') ? 'active' : '' }}">
+                                    <a href="{{ route('contact') }}">Contact</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="header-action-items-layout1">
+                        <ul>
 
-                                        <li class="{{ request()->routeIs('about') ? 'active' : '' }}">
-                                            <a href="{{ route('about') }}">About Us</a>
-                                        </li>
-
-                                        {{-- <li class="{{ request()->routeIs('service') ? 'active' : '' }}">
-                                                    <a href="{{ route('service') }}">Service</a>
-                                                </li> --}}
-
-                                        <li
-                                            class="{{ request()->routeIs('product') || request()->routeIs('category.products') || request()->routeIs('category.allproducts') || request()->routeIs('product') ? 'active' : '' }}">
-                                            <a href="{{ route('product') }}">Products</a>
-                                        </li>
-
-                                        <li class="{{ request()->routeIs('contact') ? 'active' : '' }}">
-                                            <a href="{{ route('contact') }}">Contact Us</a>
-                                        </li>
-                                    </ul>
-
-                                </nav>
-                            </div><!-- site-navigation end-->
-                            {{-- <div
-                                        class="user_zone_block d-flex flex-row align-items-center justify-content-end ml-auto">
-                                        <div class="icon"> <i class="fa fa-phone"></i></div>
-                                        <a href="tel:+919876543210" class="call-icon mx-2">
-                                            +919876543210
-                                        </a>
-                                    </div> --}}
-                        </div>
+                            <li>
+                                <a href="{{ route('contact') }}" class="action-items-primary-btn ml-3">Appointment</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- site-header-menu end -->
 </header>
-<!--header end-->
+<!-- Header Area End Here -->

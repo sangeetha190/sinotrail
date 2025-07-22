@@ -1,18 +1,49 @@
-<script src="{{ asset('user/assets/js/jquery-3.7.1.min.js') }}"></script>
-<script src="{{ asset('user/assets/js/jquery-migrate-3.4.1.min.js') }}"></script>
-<script src="{{ asset('user/assets/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('user/assets/js/tether.min.js') }}"></script>
-<script src="{{ asset('user/assets/js/jquery.easing.js') }}"></script>
-<script src="{{ asset('user/assets/js/jquery-waypoints.js') }}"></script>
-<script src="{{ asset('user/assets/js/jquery-validate.js') }}"></script>
-<script src="{{ asset('user/assets/js/numinate.min.js') }}"></script>
-<script src="{{ asset('user/assets/js/slick.js') }}"></script>
+{{-- script Starts --}}
+<!-- jquery-->
+<script src="{{ asset('user/assets/js/jquery-2.2.4.min.js') }}"></script>
+<!-- Plugins js -->
+<script src="{{ asset('user/assets/js/plugins.js') }}"></script>
+<!-- Popper js -->
+<script src="{{ asset('user/assets/js/popper.js') }}"></script>
+<!-- Bootstrap js -->
+<script src="{{ asset('user/assets/js/bootstrap.min.js') }}"></script>
+<!-- Counterup Js -->
+<script src="{{ asset('user/assets/js/jquery.counterup.min.js') }}"></script>
+<!-- WOW JS -->
+<script src="{{ asset('user/assets/js/wow.min.js') }}"></script>
+<!-- Waypoints Js -->
+<script src="{{ asset('user/assets/js/waypoints.min.js') }}"></script>
+<!-- Parallaxie Js -->
+<script src="{{ asset('user/assets/js/parallaxie.js') }}"></script>
+<!-- Nivo slider js -->
+<script src="{{ asset('user/assets/vendor/slider/js/jquery.nivo.slider.js') }}"></script>
+<script src="{{ asset('user/assets/vendor/slider/home.js') }}"></script>
+<!-- Owl Carousel Js -->
+<script src="{{ asset('user/assets/vendor/OwlCarousel/owl.carousel.min.js') }}"></script>
+<!-- Meanmenu Js -->
+<script src="{{ asset('user/assets/js/jquery.meanmenu.min.js') }}"></script>
+<!-- Magnific Popup Js -->
 <script src="{{ asset('user/assets/js/jquery.magnific-popup.min.js') }}"></script>
-<script src="{{ asset('user/assets/js/price_range_script.js') }}"></script>
-<script src="{{ asset('user/assets/js/easyzoom.js') }}"></script>
+<!-- Isotope Js -->
+<script src="{{ asset('user/assets/js/isotope.pkgd.min.js') }}"></script>
+<!-- Smoothscroll Js -->
+<script src="{{ asset('user/assets/js/smoothscroll.min.js') }}"></script>
+<!-- Custom Js -->
 <script src="{{ asset('user/assets/js/main.js') }}"></script>
-<script src="{{ asset('user/assets/js/loader.js') }}"></script>
-<!-- Swiper JS -->
+{{-- script Ends --}}
+
+
+
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000, // Animation duration
+        once: true, // Whether animation should happen only once
+    });
+</script>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>

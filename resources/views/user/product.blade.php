@@ -14,12 +14,17 @@
     @include('user.layouts.link')
     <style>
         li.active {
-            background-color: #2457aa;
-
+            /* background-color: #2457aa; */
+            color: #2457aa
         }
 
-        li.active a {
+        /* li.active a {
             color: white !important;
+        } */
+        li.active a {
+            /* background-color: #2457aa; */
+            color: #2457aa !important;
+            font-weight: 700 !important;
         }
 
         .modal-backdrop {
@@ -44,268 +49,160 @@
 
 <body>
     <!-- preloader start-->
-    @include('user.layouts.loader')
+    {{-- @include('user.layouts.loader') --}}
     <!-- preloader start end-->
-    <!--page start-->
-    <div class="page">
 
-        <!--header start-->
-        @include('user.layouts.header', ['categories' => $categories])
-        <!--header end-->
-        <!-- page-title -->
-        <div class="ttm-page-title-row">
+    <!--header start-->
+    @include('user.layouts.header', ['categories' => $categories])
+    <!--header end-->
+
+
+
+
+    <!-- scrollUp Start Here -->
+    <a href="#wrapper" data-type="section-switch" class="scrollUp">
+        <i class="fas fa-angle-double-up"></i>
+    </a>
+    <!-- scrollUp End Here -->
+
+
+
+
+    <div id="wrapper" class="wrapper">
+
+        <!-- Inner Page Banner Area Start Here -->
+        <section class="inner-page-banner bg-common inner-page-top-margin"
+            style="background-image: url( {{ asset('user/assets/img/about/br.png') }});background-size: cover;background-position: right;background: #016db2;">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="d-flex flex-column justify-content-center align-items-center">
-                            <div class="page-title-heading">
-                                <h1 class="title">Shop</h1>
-                            </div>
-                            <div class="breadcrumb-wrapper mt-2">
-                                <span class="mr-1"><i class="ti ti-home"></i></span>
-                                <a title="Homepage" href="{{ route('home') }}">Home</a>
-                                <span class="ttm-bread-sep">&nbsp;/&nbsp;</span>
-                                <span class="ttm-textcolor-skincolor">Shop</span>
-                            </div>
+                    <div class="col-12">
+                        <div class="breadcrumbs-area">
+                            <h1>Shop Grid Page</h1>
+                            <ul>
+                                <li>
+                                    <a href=" {{ route('home') }}">Home</a>
+                                </li>
+                                <li>Shop Page</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </div><!-- page-title end-->
-
-        <!--site-main start-->
-        <div class="site-main">
-
-            <!-- Button trigger modal -->
-            {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#quoteModal">
-                Launch demo modal
-            </button> --}}
-
-            <!-- Modal -->
-            <div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true"
-                style="z-index:9999 !important">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="quoteModalLabel">Modal title</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="quoteForm">
-                                @csrf
-                                <div class="mb-3">
-                                    <label for="name" class="form-label">Name</label>
-                                    <input type="text" class="form-control" id="name" name="name"
-                                        placeholder="Name">
-                                    <span class="text-danger" id="nameError"></span>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Email address</label>
-                                    <input type="email" class="form-control" id="email" name="email"
-                                        placeholder="name@gmail.com">
-                                    <span class="text-danger" id="emailError"></span>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="phone" class="form-label">Phone Number</label>
-                                    <input type="number" class="form-control" id="phone" name="phone"
-                                        placeholder="Phone Number">
-                                    <span class="text-danger" id="phoneError"></span>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="message" class="form-label">Message</label>
-                                    <textarea class="form-control" id="message" name="message" rows="3"></textarea>
-                                    <span class="text-danger" id="messageError"></span>
-                                </div>
-
-                                <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            {{-- <button type="button" class="btn btn-primary">Sumbit</button> --}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- sidebar -->
-            <section class="sidebar ttm-sidebar-left clearfix">
-                <div class="container">
-                    <!-- row -->
-                    <div class="row">
-                        <div class="col-lg-3 widget-area sidebar-left">
-                            <aside class="widget menu-content">
-                                <ul class="menu-vertical">
-                                    <li class="{{ request()->routeIs('product') ? 'active' : '' }}">
-                                        <a href="{{ route('product') }}" class="text-uppercase">All
-                                            Categories</a>
-                                    </li>
-                                    @foreach ($categories as $category)
-                                        <li class="{{ request()->segment(2) == $category->name ? 'active' : '' }}">
-                                            <a
-                                                href="{{ route('category.products', $category->name) }}">{{ $category->name }}</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </aside>
-
-                        </div>
-                        <div class="col-lg-9 content-area">
-
-                            <div class="products products-fitter">
-                                <div class="ttm-tabs">
-                                    <div class="content-sec-head-style">
-                                        <div class="content-area-sec-title">
-                                            <h5>Our Products</h5>
-                                        </div>
-                                    </div>
-                                    <div class="content-tab">
-                                        <div class="content-inner">
-                                            <div class="products row">
-                                                @if ($products->count() > 0)
+        </section>
+        <!-- Inner Page Banner Area End Here -->
 
 
-                                                    @foreach ($products as $product)
-                                                        <!-- product -->
-                                                        <div class="product col-md-4 col-sm-6 col-xs-12">
-                                                            {{-- <a href="{{ route('product_details', $product->id) }}"> --}}
-                                                            <a href="{{ route('product_details', $product->slug) }}">
-                                                                <div class="product-box">
-                                                                    <!-- product-box-inner -->
-                                                                    <div class="product-box-inner">
-                                                                        <div class="product-image-box">
-                                                                            @if ($product->is_new)
-                                                                                <div class="onsale">
-                                                                                    {{ $product->is_new ? 'New' : '' }}
-                                                                                </div>
-                                                                            @endif
 
-                                                                            @if ($product->is_trending)
-                                                                                <div class="trending">
-                                                                                    {{ $product->is_trending ? 'Trending' : '' }}
-                                                                                </div>
-                                                                            @endif
 
-                                                                            <img class="img-fluid pro-image-front "
-                                                                                src="/storage/{{ $product->thumbnail }}"
-                                                                                alt="{{ $product->name }}">
-                                                                        </div>
-                                                                    </div><!-- product-box-inner end -->
-                                                                    <div class="product-content-box">
-                                                                        {{-- <span class="product-title"> --}}
-                                                                        <h6 class="text-blue">{{ $product->name }}
-                                                                        </h6>
-                                                                        {{-- </span> --}}
-                                                                        <div class="star-ratings">
-                                                                            @if ($product->rating > 0)
-                                                                                @php
-                                                                                    $averageRating = round(
-                                                                                        $product->rating,
-                                                                                    ); // Round the rating to the nearest integer
-                                                                                @endphp
-                                                                                @for ($i = 1; $i <= 5; $i++)
-                                                                                    <i
-                                                                                        class="fa-solid fa-star {{ $i <= $averageRating ? 'text-warning' : 'text-secondary' }}"></i>
-                                                                                @endfor
-                                                                            @endif
-                                                                        </div>
-                                                                        <span class="price">
-                                                                            @if ($product->discount_price)
-                                                                                <del>
-                                                                                    <span
-                                                                                        class="product-Price-amount me-3">
-                                                                                        <span
-                                                                                            class="product-Price-currencySymbol">Rs.</span>
-                                                                                        {{ $product->price }}
-                                                                                    </span>
-                                                                                </del>
-                                                                                <ins>
-                                                                                    <span
-                                                                                        class="product-Price-amount me-3">
-                                                                                        <span
-                                                                                            class="product-Price-currencySymbol">Rs.</span>
-                                                                                        {{ $product->discount_price }}
-                                                                                    </span>
-                                                                                </ins>
-                                                                            @else
-                                                                                <ins>
-                                                                                    <span
-                                                                                        class="product-Price-amount me-3">
-                                                                                        <span
-                                                                                            class="product-Price-currencySymbol">Rs.</span>
-                                                                                        {{ $product->price }}
-                                                                                    </span>
-                                                                                </ins>
-                                                                            @endif
-                                                                            {{-- @if ($product->price)
-                                                                                <del><span
-                                                                                        class="product-Price-amount me-3">
-                                                                                        <span
-                                                                                            class="product-Price-currencySymbol">Rs.</span>
-                                                                                        ${{ $product->price }}
-                                                                                    </span>
-                                                                                </del>
-                                                                            @endif
 
-                                                                            @if ($product->discount_price)
-                                                                                <ins><span
-                                                                                        class="product-Price-amount">
-                                                                                        <span
-                                                                                            class="product-Price-currencySymbol">Rs.</span>
-                                                                                        {{ $product->discount_price }}
-                                                                                    </span>
-                                                                                </ins>
-                                                                            @endif --}}
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
+
+
+
+
+        <!-- Shop Area Start Here -->
+        <section class="shop-wrap-layout1 bg-light-primary100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 col-lg-8 col-12">
+                        <div class="row">
+                            @if ($products->count() > 0)
+                                @foreach ($products as $product)
+                                    <!-- product -->
+                                    <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6 col-12">
+                                        <a href="{{ route('product_details', $product->slug) }}">
+                                            <div class="shop-box-layout1 margin-b-30">
+                                                <div class="item-img">
+                                                    {{-- <a href="{{ route('product_details', $related->slug) }}"> --}}
+                                                    <img alt="product-image"
+                                                        src="{{ asset('storage/' . $product->thumbnail) }}"
+                                                        class="img-responsive ">
+                                                    {{-- </a> --}}
+
+                                                </div>
+                                                <div class="item-content">
+                                                    <h4 class="item-title">
+                                                        {{ $product->name }}
+                                                    </h4>
+                                                    <div class="rate-items">
+                                                        <div class="star-ratings">
+                                                            @if ($product->rating > 0)
+                                                                @php
+                                                                    $averageRating = round($product->rating); // Round the rating to the nearest integer
+                                                                @endphp
+                                                                @for ($i = 1; $i <= 5; $i++)
+                                                                    <i
+                                                                        class="fas fa-star {{ $i <= $averageRating ? 'text-warning' : 'text-secondary' }}"></i>
+                                                                @endfor
+                                                            @endif
                                                         </div>
-                                                        <!-- product end -->
-                                                    @endforeach
-                                                @else
-                                                    <p class="text-left">No related products found.</p>
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <!---two-->
-                                        {{-- <div class="content-inner">
-                                            <div class="products row">
-                                                bhjfj
 
-                                            </div>
-                                        </div> --}}
-                                        <!---three-->
-                                        {{-- <div class="content-inner">
-                                            <div class="products row">
-                                                33
+                                                    </div>
+                                                    {{-- <div class="item-price">
 
-                                            </div>
-                                        </div> --}}
+                                                        @if ($product->discount_price)
+                                                            <del>
+                                                                <span class="product-Price-amount me-3">
+                                                                    <span
+                                                                        class="product-Price-currencySymbol text-no">Rs.</span>
+                                                                    {{ $product->price }}
+                                                                </span>
+                                                            </del>
 
-                                        {{-- <div class="content-inner">
-                                            <div class="products row">
-                                                44444
-
+                                                            <span class="product-Price-amount mx-3  fs-6 ">
+                                                                <span class="product-Price-currencySymbol">Rs.</span>
+                                                                {{ $product->discount_price }}
+                                                            </span>
+                                                        @else
+                                                            <span class="product-Price-amount me-3  fs-6 fw-600 ">
+                                                                <span class="product-Price-currencySymbol">Rs.</span>
+                                                                {{ $product->price }}
+                                                            </span>
+                                                        @endif
+                                                    </div> --}}
+                                                </div>
                                             </div>
-                                        </div> --}}
+                                        </a>
                                     </div>
-                                </div>
-                            </div>
+                                    <!-- product end -->
+                                @endforeach
+                            @else
+                                <p class="text-left">No related products found.</p>
+                            @endif
+
+
+
                         </div>
 
-                    </div><!-- row end -->
-                </div>
-            </section>
-            <!-- sidebar end -->
+                    </div>
+                    <div class="sidebar-widget-area sidebar-break-md col-xl-3 col-lg-4 col-12">
+                        <div class="widget widget-categories">
+                            <h3 class="section-title title-bar-primary">Categories</h3>
 
-        </div><!--site-main end-->
-        <!--footer start-->
+
+
+                            <ul class="menu-vertical">
+                                {{-- <li class="{{ request()->routeIs('product') ? 'active' : '' }}">
+                                    <a href="{{ route('product') }}" class="text-uppercase">All Categories</a>
+                                </li> --}}
+                                @foreach ($categories as $category)
+                                    <li
+                                        class="{{ request()->segment(2) == $category->name ? 'active' : '' }} text-capitalize">
+                                        <a href="{{ route('category.products', $category->name) }}">
+                                            {{ $category->name }} <span
+                                                class="badge text-primary ">({{ $category->products_count }})</span>
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Shop Area End Here -->
+        <!-- Footer Area Start Here -->
         @include('user.layouts.footer')
-        <!--footer end-->
+        <!-- Footer Area End Here -->
     </div>
     <!-- page end -->
     <!-- Javascript -->

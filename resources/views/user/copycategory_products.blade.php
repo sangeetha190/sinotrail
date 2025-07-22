@@ -16,7 +16,7 @@
 
 <body>
     <!-- preloader start-->
-    @include('user.layouts.loader')
+    {{-- @include('user.layouts.loader') --}}
     <!-- preloader start end-->
     <!--page start-->
     <div class="page">

@@ -141,6 +141,24 @@
                         </a>
                     </li>
                 @endcan
+
+                @can('productmanagement')
+                    <li class="menu-label">Gallery Management</li>
+                    <li>
+                        <a href="{{ route('image_category.index') }}">
+                            <div class="parent-icon"> <i class="fa-solid fa-list fs-5"></i>
+                            </div>
+                            <div class="menu-title">Category</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('gallery.image.index') }}">
+                            <div class="parent-icon"><i class="fa-solid fa-cart-shopping fs-5"></i>
+                            </div>
+                            <div class="menu-title">Gallery Details</div>
+                        </a>
+                    </li>
+                @endcan
                 {{-- @can('ordermanagment')
                     <li class="menu-label">Order Management</li>
                     <li>

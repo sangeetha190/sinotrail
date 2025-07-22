@@ -78,28 +78,7 @@
                                                         @enderror
                                                     </div>
 
-                                                    <div class="col-12 col-lg-12 mb-2">
-                                                        <label class="form-label mb-0">Dynamic Input Details for
-                                                            Products</label>
-                                                        <table class="table table-bordered" id="dynamicTable">
-                                                            <tr>
-                                                                <td>
-                                                                    <input type="text" name="addmore[0][addingfeatures]"
-                                                                        placeholder="eg. Color" class="form-control" />
-                                                                </td>
-                                                                <td>
-                                                                    <input type="text"
-                                                                        name="addmore[0][addingfeaturesvalue]"
-                                                                        placeholder="eg. Red" class="form-control" />
-                                                                </td>
-                                                                <td><button type="button" name="add" id="add"
-                                                                        class="btn btn-success w-100">Add More</button></td>
-                                                            </tr>
-                                                        </table>
-                                                        @error('addmore[0]')
-                                                            <span class="text-danger">{{ $message }}</span>
-                                                        @enderror
-                                                    </div>
+
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
@@ -233,7 +212,7 @@
                                                                         Featured
                                                                         Product</label>
                                                                 </div> --}}
-                                                                <div class="form-check mx-2">
+                                                                {{-- <div class="form-check mx-2">
                                                                     <input type="hidden" name="is_trending"
                                                                         value="0">
                                                                     <input class="form-check-input" type="checkbox"
@@ -243,16 +222,16 @@
                                                                     <label class="form-check-label"
                                                                         for="is_trending">Trending
                                                                         Product</label>
-                                                                </div>
+                                                                </div> --}}
 
-                                                                <div class="form-check mx-2">
+                                                                {{-- <div class="form-check mx-2">
                                                                     <input type="hidden" name="is_new" value="0">
                                                                     <input class="form-check-input" type="checkbox"
                                                                         id="is_new" name="is_new" value="1"
                                                                         {{ old('is_new', 0) == 1 ? 'checked' : '' }}>
                                                                     <label class="form-check-label" for="is_new">New
                                                                         Arrival</label>
-                                                                </div>
+                                                                </div> --}}
 
                                                             </div>
 
@@ -309,22 +288,5 @@
             }
         });
     </script>
-    <script type="text/javascript">
-        var i = 0;
 
-        $("#add").click(function() {
-
-            ++i;
-
-            $("#dynamicTable").append('<tr><td><input type="text" name="addmore[' + i +
-                '][addingfeatures]" placeholder="eg. Warranty" class="form-control" /></td><td><input type="text" name="addmore[' +
-                i +
-                '][addingfeaturesvalue]" placeholder="eg. 1 Year Warranty" class="form-control" /></td><td><button type="button" class="btn btn-danger remove-tr w-100">Remove</button></td></tr>'
-            );
-        });
-
-        $(document).on('click', '.remove-tr', function() {
-            $(this).parents('tr').remove();
-        });
-    </script>
 @endsection

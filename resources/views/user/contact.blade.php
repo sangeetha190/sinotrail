@@ -16,190 +16,134 @@
 
 <body>
     <!-- preloader start-->
-    @include('user.layouts.loader')
+    {{-- @include('user.layouts.loader') --}}
     <!-- preloader start end-->
-    <!--page start-->
-    <div class="page">
 
-        <!--header start-->
-        @include('user.layouts.header', ['categories' => $categories])
-        <!--header end-->
-        <!-- page-title -->
-        <div class="ttm-page-title-row">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="d-flex flex-column justify-content-center align-items-center">
-                            <div class="page-title-heading">
-                                <h1 class="title">Contact Us</h1>
-                            </div>
-                            <div class="breadcrumb-wrapper mt-2">
-                                <span class="mr-1"><i class="ti ti-home"></i></span>
-                                <a title="Homepage" href="{{ route('home') }}">Home</a>
-                                <span class="ttm-bread-sep">&nbsp;/&nbsp;</span>
-                                <span class="ttm-textcolor-skincolor">Contact Us</span>
+    <!--header start-->
+    @include('user.layouts.header', ['categories' => $categories])
+    <!--header end-->
+    <!--page start-->
+
+    <!-- scrollUp Start Here -->
+    <a href="#wrapper" data-type="section-switch" class="scrollUp">
+        <i class="fas fa-angle-double-up"></i>
+    </a>
+    <!-- scrollUp End Here -->
+
+
+
+    <div class="page">
+        <div id="wrapper" class="wrapper">
+            <!-- Inner Page Banner Area Start Here -->
+            <section class="inner-page-banner bg-common inner-page-top-margin"
+                style="background-image: url({{ asset('user/assets/img/about/br.png') }});background-size: cover;background-position: right;background: #016db2;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="breadcrumbs-area">
+                                <h1>Contact Us</h1>
+                                <ul>
+                                    <li>
+                                        <a href="{{ route('home') }}">Home</a>
+                                    </li>
+                                    <li>Contact</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div><!-- page-title end-->
-
-
-        <!--site-main start-->
-        <div class="site-main">
-            <section class="contact-section bg-layer bg-layer-equal-height clearfix">
-                <div class="container">
-                    <div class="row g-0">
-                        <div class="col-lg-8 col-md-7">
-                            <div class="ttm-col-bgcolor-yes ttm-bg ttm-bgcolor-grey spacing-2">
-                                <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
-                                <div class="layer-content">
-                                    <!-- section title -->
-                                    <div class="section-title style2">
-                                        <div class="title-header">
-                                            <h5>GET IN TOUCH</h5>
-                                            <h2 class="title">Contact Form</h2>
-                                        </div>
-                                    </div><!-- section title end -->
-
-                                    <form id="contactForm" class="ttm-contactform wrap-form clearfix">
-                                        @csrf
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <label>
-                                                    <span class="text-input"><i
-                                                            class="ttm-textcolor-darkgrey ti-user"></i>
-                                                        <input name="name" type="text" id="name"
-                                                            placeholder="Your Name" required="required">
-                                                    </span>
-                                                </label>
-                                                <span class="error text-danger" id="nameError"></span>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <label>
-                                                    <span class="text-input"><i
-                                                            class="ttm-textcolor-darkgrey ti-mobile"></i>
-                                                        <input name="mobile_no" type="text" id="mobile_no"
-                                                            placeholder="Cell Phone" required="required">
-                                                    </span>
-                                                </label>
-                                                <span class="error text-danger" id="mobileNoError"></span>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <label>
-                                                    <span class="text-input"><i
-                                                            class="ttm-textcolor-darkgrey ti-email"></i>
-                                                        <input name="email" type="email" id="email"
-                                                            placeholder="Email" required="required">
-                                                    </span>
-                                                </label>
-                                                <span class="error text-danger" id="emailError"></span>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <label>
-                                                    <span class="text-input"><i
-                                                            class="ttm-textcolor-darkgrey ti-comment"></i>
-                                                        <input name="subject" type="text" id="subject"
-                                                            placeholder="Subject" required="required">
-                                                    </span>
-                                                </label>
-                                                <span class="error text-danger" id="subjectError"></span>
-                                            </div>
-                                        </div>
-                                        <label>
-                                            <span class="text-input"><i class="ttm-textcolor-darkgrey ti-comment"></i>
-                                                <textarea name="enquiry" rows="3" id="enquiry" placeholder="Message" required="required"></textarea>
-                                            </span>
-                                        </label>
-                                        <span class="error text-danger" id="enquiryError"></span>
-
-                                        <button type="submit" id="submitBtn"
-                                            class="submit ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-skincolor">
-                                            Send Message
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-5">
-                            <div class="ttm-col-bgcolor-yes ttm-bg ttm-bgcolor-skincolor spacing-3">
-                                <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
-                                <div class="layer-content">
-                                    <div class="box-header">
-                                        <div class="box-icon">
-                                            <i class="fa fa-paper-plane"></i>
-                                        </div>
-                                    </div>
-                                    <h4>Contact Information</h4>
-                                    <ul class="ttm_contact_widget_wrapper">
-                                        <li><i class="ttm-textcolor-highlight ti ti-location-pin text-white"></i>15A,
-                                            Shastri Nagar Main Rd, near Kakkan bridge, Adambakkam, Chennai, Tamil Nadu
-                                            India-600088</li>
-
-
-                                        <li> <a href="tel:+919047772117">
-                                                <i class="ttm-textcolor-highlight ti ti-headphone text-white"></i>+91
-                                                90477 72117
-                                            </a> </li>
-
-                                        <li><i class="fa-solid fa-envelope"></i><a
-                                                href="mailto:aquawaterpurifierspondicherry@gmail.com">aquawaterpurifierspondicherry@gmail.com</a>
-                                        </li>
-                                    </ul>
-                                    <div class="social-icons circle social-hover">
-                                        <ul class="list-inline">
-                                            {{-- <li class="social-facebook"><a class="tooltip-top ttm-textcolor-skincolor"
-                                                    href="" data-tooltip="Facebook" target="_blank"><i
-                                                        class="ti ti-facebook" aria-hidden="true"></i></a></li>
-                                            <li class="social-linkedin"><a class="tooltip-top ttm-textcolor-skincolor"
-                                                    href="" data-tooltip="Facebook" target="_blank"><i
-                                                        class="ti ti-linkedin" aria-hidden="true"></i></a></li>
-                                            <li class="social-instagram"><a
-                                                    class="tooltip-top ttm-textcolor-skincolor" href=""
-                                                    data-tooltip="Instagram" target="_blank"><i
-                                                        class="ti ti-instagram" aria-hidden="true"></i></a></li>
-                                            <li class="social-whatsapp"><a class="tooltip-top ttm-textcolor-skincolor"
-                                                    href="" data-tooltip="Twitter" target="_blank"><i
-                                                        class="ti ti-twitter-alt" aria-hidden="true"></i></a></li>
-                                            <li class="social-dribbble"><a class="tooltip-top ttm-textcolor-skincolor"
-                                                    href="" data-tooltip="Dribbble" target="_blank"><i
-                                                        class="ti ti-dribbble" aria-hidden="true"></i></a></li> --}}
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- row end -->
                 </div>
             </section>
+            <!-- Inner Page Banner Area End Here -->
 
-            <!--google_map-->
-            <div id="google_map" class="google_map mb-4">
+
+
+
+            <!-- Contact Us Area Start Here -->
+            <section class="contact-wrap-layout">
                 <div class="container">
-                    <div class="map_container">
-                        <div class="map">
-                            {{-- <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15550.978806747717!2d80.204654!3d12.988174!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52677d1e9b0b21%3A0x9fdb5e2c1ce92ab9!2sAqua%20Care%20Hi-Tech%20System!5e0!3m2!1sen!2sin!4v1739335923679!5m2!1sen!2sin"
-                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31227.67955670206!2d79.76599997431641!3d11.942624500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a53619b717b15a3%3A0x428c636d0d5cdd2d!2sAquaguard%20water%20purifier%20pondicherry!5e0!3m2!1sen!2sin!4v1741259728055!5m2!1sen!2sin"
-                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="google-map-area">
+                        <!-- <div id="googleMap" style="width:100%; height:496px;"></div> -->
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.910096947636!2d80.13860337980202!3d13.041394289606902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52610e55ef23b7%3A0x2a5034f49f43e426!2sSINOATRIAL%20MEDICAL%20TECHNOLOGIES!5e0!3m2!1sen!2sin!4v1753079804784!5m2!1sen!2sin"
+                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="contact-box-layout1">
+                                <h3 class="title title-bar-primary4">Leave Us Message</h3>
+                                {{-- <form class="contact-form-box" id="contact-form"> --}}
+                                <form id="contactForm" class="contact-form-box">
+                                    @csrf
+                                    <div class="row">
+                                        <div class="col-md-6 form-group">
+                                            <input type="text" placeholder="Name *" class="form-control"
+                                                name="name" id="name" data-error="Phone field is required"
+                                                required>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <input type="email" placeholder="E-mail *" class="form-control"
+                                                name="email" id="email" data-error="Subject field is required"
+                                                required>
+                                            <span class="error text-danger" id="emailError"></span>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <input type="text" placeholder="Phone *" class="form-control"
+                                                name="mobile_no" id="mobile_no" data-error="Subject field is required"
+                                                required>
+                                            <span class="error text-danger" id="mobileNoError"></span>
+                                        </div>
+
+                                        <div class="col-md-6 form-group">
+                                            <input type="text" placeholder="Subject *" class="form-control"
+                                                name="subject" id="subject" data-error="Subject field is required"
+                                                required>
+                                            <span class="error text-danger" id="subjectError"></span>
+                                        </div>
+
+                                        <div class="col-12 form-group">
+                                            <textarea placeholder="Message*" class="textarea form-control" name="enquiry" id="enquiry" rows="7"
+                                                cols="20" data-error="Message field is required" required></textarea>
+                                            <span class="error text-danger" id="enquiryError"></span>
+                                        </div>
+
+                                        <div class="col-12 form-group margin-b-none">
+                                            <button type="submit" id="submitBtn" class="item-btn">
+                                                Send Message
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="form-response"></div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="contact-box-layout1">
+                                <h3 class="title title-bar-primary4">Address</h3>
+                                <div class="contact-info">
+                                    <ul>
+                                        <li><i class="fas fa-map-marker-alt"></i>Sinoatrial Medical Technologies ,
+                                            No.10A ,F2 First Floor,
+                                            VGN Nagar,
+                                            4th main road, Ayyapanthangal,
+                                            Chennai-600056.</li>
+                                        <li><i class="far fa-envelope"></i>sinoatrialservice@gmail.com</li>
+                                        <li><i class="fas fa-phone"></i> 044-4542 8844</li>
+                                        <li><i class="fas fa-mobile-alt"></i> 98416 98 988</li> <!-- Mobile -->
+                                        <li><i class="fab fa-whatsapp"></i> 965944 68 37</li>
+
+
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                 </div>
-            </div>
-
-            <!-- google_map end -->
-
+            </section>
+            <!-- Contact Us Area End Here -->
 
         </div>
-        <!--site-main end-->
         <!--footer start-->
         @include('user.layouts.footer')
         <!--footer end-->
@@ -207,13 +151,7 @@
     <!-- page end -->
     <!-- Javascript -->
     @include('user.layouts.script')
-    {{-- <script>
-        document.getElementById("contactForm").addEventListener("submit", function(event) {
-            let submitButton = document.getElementById("submitBtn");
-            submitButton.disabled = true;
-            submitButton.innerHTML = "Submitting..."; // Change button text while submitting
-        });
-    </script> --}}
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

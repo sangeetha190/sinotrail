@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\QuoteController;
 use App\Http\Controllers\Admin\UserManagement\PermissionController;
 use App\Http\Controllers\Admin\UserManagement\RoleController;
 use App\Http\Controllers\Admin\UserManagement\UserController;
+use App\Http\Controllers\GalleryCategoryController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\User\ClientController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,7 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ClientController::class, 'index'])->name('home');
 Route::get('about', [ClientController::class, 'about'])->name('about');
+Route::get('service', [ClientController::class, 'service'])->name('service');
 Route::get('product', [ClientController::class, 'product'])->name('product');
+Route::get('gallery_images', [ClientController::class, 'gallery'])->name('gallery');
 Route::get('product-details/{name}', [ClientController::class, 'product_details'])->name('product_details');
 Route::get('contact', [ClientController::class, 'contact'])->name('contact');
 Route::post('contact-store', [ClientController::class, 'contactstore'])->name('contact.store');
@@ -98,6 +102,35 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('product-delete/{id}', [ProductController::class, 'destroy'])->name('product.delete');
     Route::delete('/product-image/{id}', [ProductController::class, 'destroy_product_image'])->name('product_image.delete');
 
+
+    // Image Category
+    Route::get('image-category', [GalleryCategoryController::class, 'index'])->name('image_category.index');
+    Route::get('get-image-category', [GalleryCategoryController::class, 'getImageCategory'])->name('image_category.get');
+    Route::get('image-category-create', [GalleryCategoryController::class, 'createCategory'])->name('image_category.create');
+    Route::post('image-category-store', [GalleryCategoryController::class, 'storeCategory'])->name('image_category.store');
+    Route::get('image-category/{id}', [GalleryCategoryController::class, 'editCategory'])->name('image_category.edit');
+    Route::PUT('image-category/{id}', [GalleryCategoryController::class, 'updateCategory'])->name('image_category.update');
+    Route::delete('image-category-delete/{id}', [GalleryCategoryController::class, 'destroy_Category'])->name('image_category.delete');
+
+
+
+
+    // Gallery Image Routes
+
+    Route::get('gallery', [GalleryController::class, 'index'])->name('gallery.image.index');
+    Route::get('gallery/get', [GalleryController::class, 'getGallery'])->name('gallery.image.get');
+    Route::get('gallery/upload', [GalleryController::class, 'createImage'])->name('gallery.image.create');
+    Route::post('gallery/upload/store', [GalleryController::class, 'store'])->name('gallery.image.store');
+    Route::get('/gallery/{category}/images', [GalleryController::class, 'editGallery'])->name('gallery.image.edit');
+    Route::put('gallery/{id}/update', [GalleryController::class, 'updateGallery'])->name('gallery.image.update');
+    Route::delete('gallery/{id}/delete', [GalleryController::class, 'delete_Gallery'])->name('gallery.image.delete');
+    Route::delete('/gallery-image/{id}/destroy', [GalleryController::class, 'destroy_Gallery'])->name('gallery-image.destroy');
+
+
+    // Route::get('gallery/category/create', [GalleryCategoryController::class, 'createCategory']);
+    // Route::post('gallery/category/store', [GalleryCategoryController::class, 'storeCategory']);
+    // Route::get('gallery/image/create', [GalleryController::class, 'createImage']);
+    // Route::post('gallery/image/store', [GalleryController::class, 'storeImage'])->name('gallery.storeImage');
 
     // Quote
     Route::get('quote-index', [QuoteController::class, 'index'])->name('quote.index');

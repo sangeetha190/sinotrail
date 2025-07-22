@@ -9,7 +9,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>Aqua Water Purifiers</title>
+    <title>Sinoatrial Medical Technologies</title>
     @include('user.layouts.link')
 </head>
 
@@ -18,508 +18,836 @@
     @include('user.layouts.loader')
     <!-- preloader start end-->
 
-    <!--page start-->
-    <div class="page">
+    <!--header start-->
+    @include('user.layouts.header', ['categories' => $categories])
+    <!--header end-->
 
 
 
-        <!--header start-->
-        @include('user.layouts.header', ['categories' => $categories])
-        <!--header end-->
 
-        <div id="rev_slider_5_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container slide-overlay"
-            data-alias="classic4export" data-source="gallery">
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <!-- Slide 1 (Left Side Content) -->
-                    <div class="swiper-slide">
-                        <img src="{{ asset('user/assets/images/slides/Untitled design.jpg') }}" alt="Slide 1">
-                        <div class="slide-content left">
-                            <h2>Exclusive Offer!</h2>
-                            <p>Get 50% off on your first purchase</p>
-                            <a href="{{ route('contact') }}" class="btn-buy">Buy Now</a>
-                        </div>
-                    </div>
-
-                    <!-- Slide 2 (Right Side Content) -->
-                    <div class="swiper-slide">
-                        <img src="{{ asset('user/assets/images/slides/h2-banner1.png') }}" alt="Slide 2">
-                        <div class="slide-content right">
-                            <h2>New Collection!</h2>
-                            <p>Explore the latest arrivals with amazing discounts</p>
-                            <a href="{{ route('contact') }}" class="btn-buy">Buy Now</a>
-                        </div>
-                    </div>
-
-                    <!-- Slide 3 (Left Side Content Again) -->
-                    <div class="swiper-slide">
-                        <img src="{{ asset('user/assets/images/slides/newww.png') }}" alt="Slide 3">
-                        <div class="slide-content left">
-                            <h2>Limited Time Deal!</h2>
-                            <p>Hurry up! Offer ends soon</p>
-                            <a href="{{ route('contact') }}" class="btn-buy">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Navigation Buttons -->
-                <div class="swiper-button-next text-white d-none"></div>
-                <div class="swiper-button-prev text-white d-none"></div>
-                <!-- Pagination -->
-                <div class="swiper-pagination d-none"></div>
-            </div>
+    <!-- scrollUp Start Here -->
+    <a href="#wrapper" data-type="section-switch" class="scrollUp">
+        <i class="fas fa-angle-double-up"></i>
+    </a>
+    <!-- scrollUp End Here -->
 
 
 
-        </div>
-        <!-- END REVOLUTION SLIDER -->
+    <div id="wrapper" class="wrapper">
 
-        <!--site-main start-->
-        <div class="site-main">
+        <section class="banner py-4 bg-light-primary100 slider-top-margin2 bannerhei"
+            style="background:url({{ asset('user/assets/img/bg.png') }}); background-size:cover; background-position:center; ">
+            <div id="carouselExampleIndicators" class="carousel slide h-100" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner h-100">
 
-            <!-- product-section -->
-            <section class="product-section clearfix pt-4">
-                <div class="container">
-                    <!-- row -->
-                    <div class="row">
-                        <div class="col-lg-7 col-md-8 ml-auto mr-auto">
-                            <!-- section title -->
-                            <div class="section-title title-style-center_text style2">
-                                <div class="title-header">
-                                    <h5>how it works</h5>
-                                    <h2 class="title">Top Selling Products</h2>
-                                </div>
-                            </div><!-- section title end -->
-                        </div>
-                    </div><!-- row end -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="ttm-tabs tabs-for-products" data-effect="fadeIn">
-                                {{-- <ul class="tabs clearfix">
-                                    <li class="tab active"><a href="#">View All</a></li>
-                                    <li class="tab"><a href="#">Aquaguard</a></li>
-                                    <li class="tab"><a href="#">Purosis</a></li>
-                                    <li class="tab"><a href="#">AO-Smith</a></li>
-                                    <li class="tab"><a href="#">Blueshell</a></li>
-                                    <li class="tab"><a href="#">Lexcruze</a></li>
-                                    <li class="tab"><a href="#">Aquaara</a></li>
-                                    <li class="tab"><a href="#">Usha</a></li>
-                                    <li class="tab"><a href="#">Finpure</a></li>
-                                    <li class="tab active"><a href="#">View All</a></li>
-                                    @foreach ($categories as $category)
-                                        <li class="{{ request()->segment(2) == $category->name ? 'active' : '' }}">
-                                            <a
-                                                href="{{ route('category.products', $category->name) }}">{{ $category->name }}</a>
-                                        </li>
-                                    @endforeach
-                                </ul> --}}
-
-                                <div class="content-tab">
-
-
-                                    {{-- starts --}}
-                                    <div class="content-inner">
-                                        <div class="products row">
-                                            @if ($products->count() > 0)
-                                                @foreach ($products as $product)
-                                                    <!-- product -->
-                                                    <div class="product col-md-3 col-sm-6 col-xs-12">
-                                                        <a href="{{ route('product_details', $product->slug) }}">
-                                                            <div class="product-box">
-                                                                <!-- product-box-inner -->
-                                                                <div class="product-box-inner">
-                                                                    <div class="product-image-box">
-                                                                        @if ($product->is_new)
-                                                                            <div class="onsale">
-                                                                                {{ $product->is_new ? 'New' : '' }}
-                                                                            </div>
-                                                                        @endif
-
-                                                                        @if ($product->is_trending)
-                                                                            <div class="trending">
-                                                                                {{ $product->is_trending ? 'Trending' : '' }}
-                                                                            </div>
-                                                                        @endif
-
-                                                                        <img class="img-fluid pro-image-front "
-                                                                            src="/storage/{{ $product->thumbnail }}"
-                                                                            alt="{{ $product->name }}">
-                                                                    </div>
-                                                                </div><!-- product-box-inner end -->
-                                                                <div class="product-content-box">
-                                                                    <h6 class="text-blue">{{ $product->name }}
-                                                                    </h6>
-                                                                    <div class="star-ratings">
-                                                                        @if ($product->rating > 0)
-                                                                            @php
-                                                                                $averageRating = round(
-                                                                                    $product->rating,
-                                                                                ); // Round the rating to the nearest integer
-                                                                            @endphp
-                                                                            @for ($i = 1; $i <= 5; $i++)
-                                                                                <i
-                                                                                    class="fa-solid fa-star {{ $i <= $averageRating ? 'text-warning' : 'text-secondary' }}"></i>
-                                                                            @endfor
-                                                                        @endif
-                                                                    </div>
-                                                                    <span class="price">
-                                                                        @if ($product->discount_price)
-                                                                            <del>
-                                                                                <span class="product-Price-amount me-3">
-                                                                                    <span
-                                                                                        class="product-Price-currencySymbol">Rs.</span>
-                                                                                    {{ $product->price }}
-                                                                                </span>
-                                                                            </del>
-                                                                            <ins>
-                                                                                <span class="product-Price-amount me-3">
-                                                                                    <span
-                                                                                        class="product-Price-currencySymbol">Rs.</span>
-                                                                                    {{ $product->discount_price }}
-                                                                                </span>
-                                                                            </ins>
-                                                                        @else
-                                                                            <ins>
-                                                                                <span class="product-Price-amount me-3">
-                                                                                    <span
-                                                                                        class="product-Price-currencySymbol">Rs.</span>
-                                                                                    {{ $product->price }}
-                                                                                </span>
-                                                                            </ins>
-                                                                        @endif
-
-                                                                        {{-- @if ($product->discount_price)
-                                                                            <del><span
-                                                                                    class="product-Price-amount me-3">
-                                                                                    <span
-                                                                                        class="product-Price-currencySymbol">Rs.</span>
-                                                                                    ${{ $product->price }}
-                                                                                </span>
-                                                                            </del>
-                                                                        @endif
-
-
-                                                                        @if ($product->discount_price)
-                                                                            <ins><span class="product-Price-amount">
-                                                                                    <span
-                                                                                        class="product-Price-currencySymbol">Rs.</span>
-                                                                                    {{ $product->discount_price }}
-                                                                                </span>
-                                                                            </ins>
-                                                                        @endif --}}
-
-                                                                    </span>
-                                                                </div>
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active h-100">
+                        <div class="container h-100">
+                            <div class="row align-items-center h-100">
+                                <div class="col-lg-6 col-md-12 ">
+                                    <div class="slider-area slider-layout2">
+                                        <div class="item position-relative">
+                                            <div class="slider-content s-tb slide-2">
+                                                <div class="text-left title-container s-tb-c">
+                                                    <div class="container">
+                                                        <div class="text-box" data-aos="fade-up" data-aos-delay="100">
+                                                            <h4 data-aos="fade-right " data-aos-delay="200"
+                                                                style="font-size: 500;">Sinoatrial</h4>
+                                                            <h3 class="slider-big-text" data-aos="fade-right"
+                                                                data-aos-delay="300">
+                                                                We are Manufacturing and Supplying <span class=""
+                                                                    style="font-weight: 700;font-size:30px">Medical
+                                                                    technology across India</span>
+                                                            </h3>
+                                                            <p class="slider-paragraph" data-aos="fade-up"
+                                                                data-aos-delay="400">
+                                                                Trusted by leading hospitals and clinics, we provide
+                                                                scalable and certified medical equipment solutions to
+                                                                support clinical excellence across regions.
+                                                            </p>
+                                                            <div class="slider-btn-area" data-aos="zoom-in"
+                                                                data-aos-delay="500">
+                                                                <a href=" {{ route('about') }}" class="btn-btn">READ
+                                                                    MORE<i class="fas fa-chevron-right"></i></a>
                                                             </div>
-                                                        </a>
+                                                        </div>
                                                     </div>
-                                                    <!-- product end -->
-                                                @endforeach
-                                            @else
-                                                <p class="text-left">No related products found.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12 mobile-none" data-aos="zoom-in-left"
+                                    data-aos-delay="600">
+                                    <img src=" {{ asset('user/assets/img/slider/4.png') }}" alt=""
+                                        class="rounded">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="carousel-item h-100">
+                        <div class="container h-100">
+                            <div class="row align-items-center h-100">
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="slider-area slider-layout2">
+                                        <div class="item position-relative">
+                                            <div class="slider-content s-tb slide-2">
+                                                <div class="text-left title-container s-tb-c">
+                                                    <div class="container">
+                                                        <div class="text-box" data-aos="fade-up" data-aos-delay="100">
+                                                            <h4 data-aos="fade-right" data-aos-delay="200"
+                                                                style="font-size: 500;">Sinoatrial</h4>
+                                                            <h3 class="slider-big-text" data-aos="fade-right"
+                                                                data-aos-delay="300">
+                                                                Your Trusted Partner in <span
+                                                                    style="font-weight: 700; font-size: 30px;">Advanced
+                                                                    Medical Solutions</span>
+                                                            </h3>
+                                                            <p class="slider-paragraph" data-aos="fade-up"
+                                                                data-aos-delay="400">
+                                                                We specialize in delivering cutting-edge medical
+                                                                equipment tailored to the evolving needs of healthcare
+                                                                providers—ensuring accuracy, reliability, and patient
+                                                                safety across India.
+                                                            </p>
+                                                            <div class="slider-btn-area" data-aos="zoom-in"
+                                                                data-aos-delay="500">
+                                                                <a href=" {{ route('about') }}" class="btn-btn">READ
+                                                                    MORE <i class="fas fa-chevron-right"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12 mobile-none" data-aos="zoom-in-left"
+                                    data-aos-delay="600">
+                                    <img src="{{ asset('user/assets/img/slider/5.png ') }}" alt=""
+                                        class="rounded">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="carousel-item h-100">
+                        <div class="container h-100">
+                            <div class="row align-items-center h-100">
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="slider-area slider-layout2">
+                                        <div class="item position-relative">
+                                            <div class="slider-content s-tb slide-2">
+                                                <div class="text-left title-container s-tb-c">
+                                                    <div class="container">
+                                                        <div class="text-box" data-aos="fade-up"
+                                                            data-aos-delay="100">
+                                                            <h4 data-aos="fade-right" data-aos-delay="200"
+                                                                style="font-size: 500;">All over India</h4>
+
+                                                            <h2 class="slider-big-text" data-aos="fade-right"
+                                                                data-aos-delay="300" style="font-weight: 700;">
+
+                                                            </h2>
+
+                                                            <h3 class="slider-big-text" data-aos="fade-right"
+                                                                data-aos-delay="300">
+                                                                We are <span
+                                                                    style="font-weight: 700; font-size: 30px;">Leading
+                                                                    High-Quality Services & Delivering reliable </span>
+                                                            </h3>
+
+                                                            <p class="slider-paragraph" data-aos="fade-up"
+                                                                data-aos-delay="400">
+                                                                Specialized in Accessories and Maintenance Products —
+                                                                ensuring uninterrupted medical operations. Trusted by
+                                                                healthcare professionals for our reliability, fast
+                                                                delivery, and nationwide support.
+                                                            </p>
+
+                                                            <div class="slider-btn-area" data-aos="zoom-in"
+                                                                data-aos-delay="500">
+                                                                <a href=" {{ route('about') }}" class="btn-btn">READ
+                                                                    MORE <i class="fas fa-chevron-right"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12 mobile-none" data-aos="zoom-in-left"
+                                    data-aos-delay="600">
+                                    <img src="{{ asset('user/assets/img/slider/6.png ') }}" alt=""
+                                        class="rounded">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Carousel Controls -->
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </section>
+
+
+        <!-- Slider Area End Here -->
+        <!-- About Area Start Here -->
+        <!-- About Area Start Here -->
+        <section class="about-wrap-layout2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-12" data-aos="fade-up">
+                        <div class="about-box-layout3">
+                            <h2 class="item-title">Welcome To Sinoatrial
+                                <span>Medical Technologies</span>
+                            </h2>
+                            <p>Sinoatrial Medical Technologies is a leading
+                                provider of high-quality hospital equipment
+                                and accessories, proudly based in MGR Nagar
+                                and K.K. Nagar, Chennai. Our mission is to
+                                deliver safe, innovative, and reliable
+                                medical devices—such as SpO₂ sensors, ECG
+                                cables, and monitoring accessories—trusted
+                                by top hospitals across India. We are
+                                committed to improving healthcare standards
+                                through technology, precision, and service
+                                excellence.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-12">
+                        <div class="row">
+                            <div class="col-md-6 col-12" data-aos="fade-right" data-aos-delay="100">
+                                <div class="about-box-layout4">
+                                    <div class="media">
+                                        <div class="item-icon">
+                                            <img src="{{ asset('user/assets/img/brand/1.png ') }}" alt srcset
+                                                width="64px">
+                                        </div>
+                                        <div class="media-body space-md">
+                                            <h3 class="item-title">Expert
+                                                Manufacturing Team</h3>
+                                            <p>Our skilled professionals
+                                                ensure every product is
+                                                crafted with care,
+                                                precision, and compliance to
+                                                international medical
+                                                standards.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-12" data-aos="fade-left" data-aos-delay="200">
+                                <div class="about-box-layout4">
+                                    <div class="media">
+                                        <div class="item-icon">
+                                            <img src="{{ asset('user/assets/img/brand/2.png') }}" alt srcset
+                                                width="64px">
+                                        </div>
+                                        <div class="media-body space-md">
+                                            <h3 class="item-title">Fast
+                                                Nationwide Delivery</h3>
+                                            <p>With efficient logistics and
+                                                a reliable supply chain, we
+                                                ensure prompt delivery of
+                                                medical equipment across
+                                                India’s healthcare
+                                                network.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-12" data-aos="fade-right" data-aos-delay="300">
+                                <div class="about-box-layout4">
+                                    <div class="media">
+                                        <div class="item-icon">
+                                            <img src="{{ asset('user/assets/img/brand/3.png') }}" alt srcset
+                                                width="64px">
+                                        </div>
+                                        <div class="media-body space-md">
+                                            <h3 class="item-title">Certified
+                                                & Reliable Products</h3>
+                                            <p>Our equipment undergoes
+                                                rigorous testing to meet
+                                                safety regulations and is
+                                                trusted by corporate
+                                                hospitals throughout the
+                                                country.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-12" data-aos="fade-left" data-aos-delay="400">
+                                <div class="about-box-layout4">
+                                    <div class="media">
+                                        <div class="item-icon">
+                                            <img src="{{ asset('user/assets/img/brand/4.png') }}" alt srcset
+                                                width="54px">
+                                        </div>
+                                        <div class="media-body space-md">
+                                            <h3 class="item-title">Dedicated
+                                                Support & Service</h3>
+                                            <p>We offer 24/7 technical
+                                                support and service
+                                                assistance to ensure minimal
+                                                downtime and maximum
+                                                performance in healthcare
+                                                facilities.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- End Row -->
+
+                        <div class="call-to-action-wrap-layout4 p-0" data-aos="zoom-in" data-aos-delay="500">
+                            <div class="container">
+                                <div class="row justify-content-center align-items-center">
+                                    <div class="col-xl-12 col-lg-12 col-md-12">
+                                        <div class="call-to-action-box-layout4 text-center text-lg-start">
+                                            <div class="call-to-action-btn">
+                                                <a href="#" class="item-btn btn btn-primary">
+                                                    Make an Appointment
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div> <!-- End Column -->
+                </div> <!-- End Row -->
+            </div> <!-- End Container -->
+        </section>
+        <!-- About Area End Here -->
+
+        <!-- About Area End Here -->
+
+
+
+
+
+        <!-- Shop Area Start Here -->
+        <section class="shop-wrap-layout1 bg-light-primary100 bg-light-secondary100">
+            <div class="container">
+                <div class="section-heading heading-dark text-center heading-layout1">
+                    <h2>Our Online Store</h2>
+                    <p>Shop Online Any Where</p>
+                </div>
+                <div class="rc-carousel dot-control-layout3" data-loop="true" data-items="4" data-margin="30"
+                    data-autoplay="false" data-autoplay-timeout="5000" data-smart-speed="2000" data-dots="true"
+                    data-nav="false" data-nav-speed="false" data-r-x-small="1" data-r-x-small-nav="false"
+                    data-r-x-small-dots="true" data-r-x-medium="2" data-r-x-medium-nav="false"
+                    data-r-x-medium-dots="true" data-r-small="2" data-r-small-nav="false" data-r-small-dots="true"
+                    data-r-medium="3" data-r-medium-nav="false" data-r-medium-dots="true" data-r-large="4"
+                    data-r-large-nav="false" data-r-large-dots="true" data-r-extra-large="4"
+                    data-r-extra-large-nav="false" data-r-extra-large-dots="true">
+
+                    {{-- Test starts here --}}
+
+
+
+                    {{-- starts --}}
+
+
+                    @if ($products->count() > 0)
+                        @foreach ($products as $product)
+                            <div class="shop-box-layout1">
+                                <a href="{{ route('product_details', $product->slug) }}">
+                                    <div class="item-img">
+                                        <img src="/storage/{{ $product->thumbnail }}" alt="{{ $product->name }}"
+                                            class="img-fluid">
+                                        {{-- <ul class="shop-action-items">
+                                            <li>
+                                                <a href="#">
+                                                    <i class="flaticon-shopping-cart"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="flaticon-exchange-arrows"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="flaticon-favorite-heart-button"></i>
+                                                </a>
+                                            </li>
+                                        </ul> --}}
+                                    </div>
+                                    <div class="item-content">
+                                        <h4 class="item-title">
+                                            {{ $product->name }}
+                                        </h4>
+                                        <div class="rate-items">
+                                            @if ($product->rating > 0)
+                                                @php
+                                                    $averageRating = round($product->rating); // Round the rating to the nearest integer
+                                                @endphp
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    <i
+                                                        class="fas fa-star {{ $i <= $averageRating ? 'text-warning' : 'text-secondary' }}"></i>
+                                                @endfor
                                             @endif
+
                                         </div>
+                                        {{-- <div class="item-price">
+                                            @if ($product->discount_price)
+                                                <del>
+                                                    <span class="product-Price-amount me-3">
+                                                        <span class="product-Price-currencySymbol">Rs.</span>
+                                                        {{ $product->price }}
+                                                    </span>
+                                                </del>
+                                                <ins>
+                                                    <span class="product-Price-amount me-3">
+                                                        <span class="product-Price-currencySymbol">Rs.</span>
+                                                        {{ $product->discount_price }}
+                                                    </span>
+                                                </ins>
+                                            @else
+                                                <ins>
+                                                    <span class="product-Price-amount me-3">
+                                                        <span class="product-Price-currencySymbol">Rs.</span>
+                                                        {{ $product->price }}
+                                                    </span>
+                                                </ins>
+                                            @endif
+                                        </div> --}}
                                     </div>
-                                    {{-- Ends --}}
+                                </a>
+                            </div>
+                        @endforeach
+                    @else
+                        <p class="text-left">No related products found.</p>
+                    @endif
+                </div>
+            </div>
+        </section>
+        <!-- Shop Area End Here -->
+        {{-- ============================================================================================== --}}
 
 
+        <!-- Services Area Start Here -->
+        <section class="departments-wrap-layout2 bg-light-secondary100 py-5">
+            <div class="container">
+                <div class="section-heading heading-dark text-left heading-layout1" data-aos="fade-right">
+                    <h2>Our Services</h2>
+                    <p>Specialized Medical Equipment Solutions</p>
+                </div>
+                <div class="rc-carousel nav-control-layout2" data-loop="true" data-items="4" data-margin="20"
+                    data-autoplay="false" data-autoplay-timeout="5000" data-smart-speed="2000" data-dots="false"
+                    data-nav="false" data-nav-speed="false" data-r-x-small="1" data-r-x-small-nav="false"
+                    data-r-x-small-dots="false" data-r-x-medium="2" data-r-x-medium-nav="false"
+                    data-r-x-medium-dots="false" data-r-small="2" data-r-small-nav="false" data-r-small-dots="false"
+                    data-r-medium="3" data-r-medium-nav="false" data-r-medium-dots="false" data-r-large="4"
+                    data-r-large-nav="false" data-r-large-dots="false" data-r-extra-large="3"
+                    data-r-extra-large-nav="false" data-r-extra-large-dots="false">
+
+                    <div class="departments-box-layout2 bg-white p-2 rounded" data-aos="zoom-in"
+                        data-aos-delay="100">
+                        <span class="departments-sl">01.</span>
+                        <div class="item-icon ser">
+                            <img src="{{ asset('user/assets/img/brand/5.png') }}" alt="">
+                        </div>
+                        <h3 class="item-title"><a href="#">Patient Monitoring Solutions</a></h3>
+                        <p>High-quality monitors and accessories including SpO₂, ECG, and temperature sensors for
+                            critical patient care.</p>
+
+                        <a href="{{ route('about') }}">Read More</a>
+                    </div>
+
+                    <div class="departments-box-layout2 bg-white p-2 rounded" data-aos="zoom-in"
+                        data-aos-delay="200">
+                        <span class="departments-sl">02.</span>
+                        <div class="item-icon ser">
+                            <img src="{{ asset('user/assets/img/brand/5.png') }}" alt="">
+                        </div>
+                        <h3 class="item-title"><a href="#">Medical Cables & Leads</a></h3>
+                        <p>We manufacture and supply durable ECG/EKG cables, IBP/NIBP connectors, and lead wires
+                            compatible with major brands.</p>
+
+                        <a href="{{ route('about') }}">Read More</a>
+                    </div>
+
+                    <div class="departments-box-layout2 bg-white p-2 rounded" data-aos="zoom-in"
+                        data-aos-delay="300">
+                        <span class="departments-sl">03.</span>
+                        <div class="item-icon ser">
+                            <img src="{{ asset('user/assets/img/brand/5.png') }}" alt="">
+                        </div>
+                        <h3 class="item-title"><a href="#">Ventilator Accessories</a></h3>
+                        <p>Complete range of ventilator-compatible accessories including reusable and disposable tubing
+                            and sensors.</p>
+
+                        <a href="{{ route('about') }}">Read More</a>
+                    </div>
+
+                    <div class="departments-box-layout2 bg-white p-2 rounded" data-aos="zoom-in"
+                        data-aos-delay="400">
+                        <span class="departments-sl">04.</span>
+                        <div class="item-icon">
+                            <i class="flaticon-delivery-truck"></i>
+                        </div>
+                        <h3 class="item-title"><a href="#">Nationwide Dealership & Service</a></h3>
+                        <p>We support over 2000+ clients across 20 states with fast delivery and efficient post-sales
+                            technical support.</p>
+                        <a href="{{ route('about') }}">Read More</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- Services Area End Here -->
 
 
+        <!-- Progress Area Start Here -->
+        <section class="progress-wrap-layout2 bg-overlay bg-overlay-primary80 bg-common parallaxie bg-themeblue"
+            data-bg-image="user/assets/img/figure/figure1.jpg">
+            <div class="container">
+                <div class="section-heading heading-light text-center mb-5">
+                    <h2>Our Impact in Numbers</h2>
+                    <p>Serving Healthcare with Excellence Across the
+                        Nation</p>
+                </div>
+                <div class="row">
+                    <div class="progress-box-layout2 col-md-4">
+                        <div class="inner-item">
+                            <div class="counting-text counter" data-num="59">59</div>
+                            <p>Health Sections</p>
+                        </div>
+                    </div>
+                    <div class="progress-box-layout2 col-md-4">
+                        <div class="inner-item">
+                            <div class="counting-text counter" data-num="4709">4709</div>
+                            <p>Happy Clients</p>
+                        </div>
+                    </div>
+                    <div class="progress-box-layout2 col-md-4">
+                        <div class="inner-item">
+                            <div class="counting-text counter" data-num="128">128</div>
+                            <p>Service Engineers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Progress Area End Here -->
 
-                                </div>
-
-
-
+        <!-- About Us Start Here -->
+        <section class="about-wrap-layout5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <div class="about-box-layout13">
+                            <h2 class="item-title">
+                                Your Trusted <span>Medical Center & Laboratory</span>
+                            </h2>
+                            <p>Sinoatrial Medical Technologies is a young and professional company located in MGR Nagar
+                                and K.K. Nagar, Chennai. As one of India's leading industrial and production centers,
+                                Chennai provides the perfect environment for innovation and excellence. We are committed
+                                to delivering high-quality hospital equipment, with a strong focus on customer
+                                satisfaction and continuous growth.</p>
+                            <p>Our product range includes SpO2 sensors, medical cables, and various medical equipment
+                                accessories. These products are widely used across corporate hospitals in India. We
+                                continuously develop new and innovative solutions that meet the latest safety and
+                                quality standards in healthcare.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="zoom-in">
+                        <div class="about-box-layout14">
+                            <div class="item-video">
+                                <img src="{{ asset('user/assets/img/about/1.png') }}" alt="about">
+                                {{-- <a class="play-btn popup-youtube" href="http://www.youtube.com/watch?v=1iIZeIy7TqM">
+                                    <i class="flaticon-play-button"></i>
+                                </a> --}}
                             </div>
                         </div>
                     </div>
                 </div>
-                <!---------->
-                <div class="col-12 mt-5">
-                    <div class="deliver-btn text-center">
-                        <a href="{{ route('product') }}" class="btn order-btn">
-                            View all Products
-                        </a>
+            </div>
+        </section>
+        <!-- About Us Area End Here -->
+
+        <!-- Shop Area End Here -->
+        <!-- Brand Area End Here -->
+
+        <!-- Blog and Testimonial Area Start Here -->
+        <section class="both-side-half-bg w-100 bg-themeblue py-5" data-aos="fade-up" data-aos-duration="1000">
+            <div class="single-item bg-common container" data-bg-image="img/figure/figure9.png">
+                <div class="section-heading heading-light heading-layout5 text-center" data-aos="zoom-in"
+                    data-aos-delay="200">
+                    <h2>Testimonials</h2>
+                    <div id="owl-nav3" class="owl-nav-layout2">
+                        <span class="rt-prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="rt-next">
+                            <i class="fas fa-chevron-right"></i>
+                        </span>
                     </div>
                 </div>
 
-            </section>
-            <!-- product-section end-->
+                <div class="rc-carousel nav-control-layout7" data-loop="true" data-items="4" data-margin="30"
+                    data-autoplay="false" data-autoplay-timeout="5000" data-custom-nav="#owl-nav3"
+                    data-smart-speed="2000" data-dots="false" data-nav="false" data-nav-speed="false"
+                    data-r-x-small="1" data-r-x-small-nav="true" data-r-x-small-dots="false" data-r-x-medium="1"
+                    data-r-x-medium-nav="false" data-r-x-medium-dots="false" data-r-small="1"
+                    data-r-small-nav="false" data-r-small-dots="false" data-r-medium="1" data-r-medium-nav="false"
+                    data-r-medium-dots="false" data-r-large="1" data-r-large-nav="false" data-r-large-dots="false"
+                    data-r-extra-large="1" data-r-extra-large-nav="false" data-r-extra-large-dots="false">
 
-            <!-- testimonial-section -->
-            <section class="testimonial-section bg-img1 ttm-bgcolor-darkgrey clearfix">
-                <div class="row-wrapper-bg-layer ttm-bg-layer"></div>
-                <div class="container">
-                    <!-- row -->
-                    <div class="row">
-                        <div class="col-md-7 ml-auto mr-auto">
-                            <!-- section title -->
-                            <div class="section-title title-style-center_text style2">
-                                <div class="title-header">
-                                    <h5>TESTIMONIAL</h5>
-                                    <h2 class="title">What Our Customers Saying</h2>
-                                </div>
-                            </div><!-- section title end -->
+                    <!-- Testimonial 1 -->
+                    <div class="item" data-aos="fade-right" data-aos-delay="100">
+                        <div class="testmonial-box-layout2 text-center">
+                            <h4 class="item-title">Arun<span><br> Biomedical Engineer</span></h4>
+                            <p>"I have been using SINOATRIAL patient monitors and ECG machines for the past few years.
+                                The products are up to the mark and even better than those of competitors."</p>
+                            <ul class="rating">
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                            </ul>
                         </div>
-                    </div><!-- row end -->
-                    <!-- row -->
-                    <div class="row">
-                        <div class="col-lg-12 col-sm-12 col-xs-12">
-                            <!-- slick_slider -->
-                            <div class="slick_slider"
-                                data-slick='{"slidesToShow": 3, "slidesToScroll": 1, "arrows":false, "autoplay":true, "centerMode":true, "centerPadding":0, "infinite":true, "initialSlide":2}'>
-                                <!-- testimonials -->
-                                <div class="testimonials ttm-testimonial-box-view-style1">
-                                    <div class="testimonial-content">
-                                        <div class="testimonial-avatar">
-                                            {{-- <div class="testimonial-img">
-                                                <img class="img-center"
-                                                    src="{{ asset('user/assets/images/testimonial/01.jpg') }}"
-                                                    alt="testimonial-img">
-                                            </div> --}}
-                                        </div>
-                                        {{-- <div class="quote-icon">
-                                            <i class="ti ti-quote-left"></i>
-                                        </div> --}}
-                                        <blockquote>From past one year I am the user of aquaguard water purifier
-                                            pondycherry. Its really a fantastic purifier for middle class people with
-                                            optimum cost. The service back up is also very good.in the evening itself I
-                                            got it. It Was to good and well service</blockquote>
-                                        <div class="testimonial-caption">
-                                            <h5>
-                                                janki janu</h5>
-                                            {{-- <label>CEO At Founder</label> --}}
-                                            <div class="star-ratings">
-                                                <ul class="rating">
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- testimonials end -->
-                                <!-- testimonials -->
-                                <div class="testimonials ttm-testimonial-box-view-style1">
-                                    <div class="testimonial-content">
-                                        <div class="testimonial-avatar">
-                                            {{-- <div class="testimonial-img">
-                                                <img class="img-center"
-                                                    src="{{ asset('user/assets/images/testimonial/02.jpg') }}"
-                                                    alt="testimonial-img">
-                                            </div> --}}
-                                        </div>
-                                        {{-- <div class="quote-icon">
-                                            <i class="ti ti-quote-left"></i>
-                                        </div> --}}
-                                        <blockquote>Products are really money worthy. Good service 👍</blockquote>
-                                        <div class="testimonial-caption">
-                                            <h5>Easter raj</h5>
-                                            {{-- <label>CEO At Founder</label> --}}
-                                            <div class="star-ratings">
-                                                <ul class="rating">
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- testimonials end -->
-                                <!-- testimonials -->
-                                <div class="testimonials ttm-testimonial-box-view-style1">
-                                    <div class="testimonial-content">
-                                        <div class="testimonial-avatar">
-                                            {{-- <div class="testimonial-img">
-                                                <img class="img-center"
-                                                    src="{{ asset('user/assets/images/testimonial/01.jpg') }}"
-                                                    alt="testimonial-img">
-                                            </div> --}}
-                                        </div>
-                                        {{-- <div class="quote-icon">
-                                            <i class="ti ti-quote-left"></i>
-                                        </div> --}}
-                                        <blockquote>Good product and good service, maintenance and service also is
-                                            excellent</blockquote>
-                                        <div class="testimonial-caption">
-                                            <h5>Sivasankaran</h5>
-                                            {{-- <label>CEO At Founder</label> --}}
-                                            <div class="star-ratings">
-                                                <ul class="rating">
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- testimonials end -->
+                    </div>
 
-
-
-                                {{--  --}}
-                                <!-- testimonials -->
-                                <div class="testimonials ttm-testimonial-box-view-style1">
-                                    <div class="testimonial-content">
-
-                                        <blockquote>From past one year I am the user of aquaguard water purifier
-                                            pondycherry. Its really a fantastic purifier for middle class people with
-                                            optimum cost. The service back up is also very good.in the evening itself I
-                                            got it. It Was to good and well service</blockquote>
-                                        <div class="testimonial-caption">
-                                            <h5>janki janu</h5>
-                                            <div class="star-ratings">
-                                                <ul class="rating">
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- testimonials end -->
-                                <!-- testimonials -->
-                                <div class="testimonials ttm-testimonial-box-view-style1">
-                                    <div class="testimonial-content">
-
-                                        <blockquote>Nice product and best sellar... Best service and maintenance ...
-                                        </blockquote>
-                                        <div class="testimonial-caption">
-                                            <h5>Prabu</h5>}
-                                            <div class="star-ratings">
-                                                <ul class="rating">
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- testimonials end -->
-                                <!-- testimonials -->
-                                <div class="testimonials ttm-testimonial-box-view-style1">
-                                    <div class="testimonial-content">
-
-                                        <blockquote>Best service❤️🤩comparing to others</blockquote>
-                                        <div class="testimonial-caption">
-                                            <h5>k. Dhanalakshmi</h5>
-                                            <div class="star-ratings">
-                                                <ul class="rating">
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- testimonials end -->
-                                {{--  --}}
-
-
-
-                            </div><!-- testimonial-slide end-->
+                    <!-- Testimonial 2 -->
+                    <div class="item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="testmonial-box-layout2 text-center">
+                            <h4 class="item-title">Dr. Ravi<span><br> Anesthesiologist</span></h4>
+                            <p>"The SINOATRIAL E-Flo Anesthesia Workstation is extremely useful during critical
+                                surgeries. I’ve been using their products for 20 years — international quality at an
+                                Indian price."</p>
+                            <ul class="rating">
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                            </ul>
                         </div>
-                    </div><!-- row end-->
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="item" data-aos="fade-left" data-aos-delay="300">
+                        <div class="testmonial-box-layout2 text-center">
+                            <h4 class="item-title">Dr. Balu<span><br> Surgeon</span></h4>
+                            <p>"We’ve been using the EFLO 6D anesthesia workstation for 3 months and completed over 60
+                                procedures, including major surgeries. Our anesthetist is fully satisfied with the
+                                performance and service."</p>
+                            <ul class="rating">
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
-            </section>
-            <!-- testimonial-section end-->
-            <!-- row-top-section -->
-            <section class="row-top-section clearfix">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="mt-4 mb-4 pt-4 pb-4 res-991-mt-0">
-                                <div class="row g-0">
-                                    <div class="col-lg-4 col-md-4 col-sm-12">
-                                        <!-- featured-icon-box -->
-                                        <div class="featured-icon-box style1 ttm-bgcolor-grey">
-                                            <div class="featured-icon">
-                                                <div
-                                                    class="ttm-icon ttm-icon_element-color-skincolor ttm-icon_element-size-md">
-                                                    <i class="themifyicon ti-truck"></i>
-                                                </div>
-                                            </div>
-                                            <div class="featured-content">
-                                                <div class="featured-title">
-                                                    <h5>Free Shipping</h5>
-                                                </div>
-                                                <div class="featured-desc">
-                                                    <p>Pure water, pure service—enjoy fast, free delivery on all orders
-                                                        and stay refreshed every day!
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div><!-- featured-icon-box end-->
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-12">
-                                        <!-- featured-icon-box -->
-                                        <div class="featured-icon-box style1 ttm-bgcolor-highlight">
-                                            <div class="featured-icon">
-                                                <div
-                                                    class="ttm-icon ttm-icon_element-color-darkgrey ttm-icon_element-size-md">
-                                                    <i class="themifyicon ti-reload text-white"></i>
-                                                </div>
-                                            </div>
-                                            <div class="featured-content">
-                                                <div class="featured-title">
-                                                    <h5 class="text-white">Get a Free Demo!</h5>
-                                                </div>
-                                                <div class="featured-desc">
-                                                    <p class="text-black">"Experience pure, clean water with our free
-                                                        demo. See how our solutions improve your water quality!
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div><!-- featured-icon-box end-->
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-12">
-                                        <!-- featured-icon-box -->
-                                        <div class="featured-icon-box style1 ttm-bgcolor-grey">
-                                            <div class="featured-icon">
-                                                <div
-                                                    class="ttm-icon ttm-icon_element-color-skincolor ttm-icon_element-size-md">
-                                                    <i class="themifyicon ti-comments"></i>
-                                                </div>
-                                            </div>
-                                            <div class="featured-content">
-                                                <div class="featured-title">
-                                                    <h5>Get Your Water Tested for Free!</h5>
-                                                </div>
-                                                <div class="featured-desc">
-                                                    <p>Your health matters! Book a free water test today and discover
-                                                        what’s really in your water.</p>
-                                                </div>
-                                            </div>
-                                        </div><!-- featured-icon-box end-->
+            </div>
+        </section>
+        <!-- Blog and Testimonial Area End Here -->
+
+        <!-- Call to Action Area Start Here -->
+        <section class="call-to-action-wrap-layout4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-xl-12 col-lg-12 col-md-12">
+                        <div class="call-to-action-box-layout4 text-center text-lg-start">
+                            <h2 class="item-title">
+                                We Provide the Highest Level of Satisfaction, Care &amp; Services to Our Patients.
+                            </h2>
+                            <div class="call-to-action-btn">
+                                <a href="{{ route('home') }}" class="item-btn btn btn-primary">
+                                    Make an Appointment
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Call to Action End Here -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Slider Area Start Here -->
+        {{-- <div class="slider-area slider-layout2 bg-light-primary100 slider-top-margin2">
+            <div class="bend niceties preview-1">
+                <div id="ensign-nivoslider-1" class="slides">
+                    <img src="{{ asset('user/assets/img/slider/1.png') }}" alt="slider"
+                        title="#slider-direction-1" />
+                    <img src="{{ asset('user/assets/img/slider/2.png') }}" alt="slider"
+                        title="#slider-direction-2" />
+                    <img src="{{ asset('user/assets/img/slider/3.png') }}" alt="slider"
+                        title="#slider-direction-3" />
+                </div>
+                <div id="slider-direction-1" class="t-cn slider-direction">
+                    <div class="slider-content s-tb slide-1">
+                        <div class="text-left title-container s-tb-c">
+                            <div class="container">
+                                <div class="text-box">
+                                    <div class="slider-big-text">We are
+                                        providing <span> healthcare
+                                            solutions.</span></div>
+                                    <p class="slider-paragraph">Mimply dummy
+                                        text of the printing and type settin
+                                        age
+                                        ipsum dolor sit amet, consecte tur
+                                        adipiscing pitaeir ding total
+                                        healthcare
+                                        solutions.
+                                    </p>
+                                    <div class="slider-btn-area">
+                                        <a href="#" class="item-btn">READ
+                                            MORE<i class="fas fa-chevron-right"></i></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div><!-- row end -->
+                    </div>
                 </div>
-            </section>
-            <!-- row-top-section end -->
+                <div id="slider-direction-2" class="t-cn slider-direction">
+                    <div class="slider-content s-tb slide-2">
+                        <div class="text-left title-container s-tb-c">
+                            <div class="container">
+                                <div class="text-box">
+                                    <div class="slider-big-text">We are
+                                        <div style="color:#E2231A;">providing</div> <span> healthcare
+                                            solutions.</span>
+                                    </div>
+                                    <p class="slider-paragraph">Mimply dummy
+                                        text of the printing and type settin
+                                        age
+                                        ipsum dolor sit amet, consecte tur
+                                        adipiscing pitaeir ding total
+                                        healthcare
+                                        solutions.
+                                    </p>
+                                    <div class="slider-btn-area">
+                                        <a href="#" class="item-btn">READ
+                                            MORE<i class="fas fa-chevron-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="slider-direction-3" class="t-cn slider-direction">
+                    <div class="slider-content s-tb slide-3">
+                        <div class="text-left title-container s-tb-c">
+                            <div class="container">
+                                <div class="text-box">
+                                    <div class="slider-big-text">We are
+                                        providing<span> healthcare
+                                            solutions.</span></div>
+                                    <p class="slider-paragraph">Mimply dummy
+                                        text of the printing and type settin
+                                        age
+                                        ipsum dolor sit amet, consecte tur
+                                        adipiscing pitaeir ding total
+                                        healthcare
+                                        solutions.
+                                    </p>
+                                    <div class="slider-btn-area">
+                                        <a href="#" class="item-btn">READ
+                                            MORE<i class="fas fa-chevron-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+        <!-- Slider Area End Here -->
+        {{-- =========================================================================================================== --}}
 
-        </div><!--site-main end-->
 
-        <!--footer start-->
+
+
+        <!-- Footer Area Start Here -->
         @include('user.layouts.footer')
-        <!--footer end-->
-
+        <!-- Footer Area End Here -->
     </div>
-    <!-- page end -->
+
+
+
+    {{-- full code Ends --}}
+
+
+
 
 
     <!-- Javascript -->

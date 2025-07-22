@@ -1,33 +1,58 @@
-<!-- favicon icon -->
-<link rel="shortcut icon" href="{{ asset('user/assets/images/logo/favicon.png') }}" />
-<!-- bootstrap -->
-<link rel="stylesheet" type="text/css" href="{{ asset('user/assets/css/bootstrap.min.css') }}" />
-<!-- animate -->
-<link rel="stylesheet" type="text/css" href="{{ asset('user/assets/css/animate.css') }}" />
-<!-- fontawesome -->
-<link rel="stylesheet" type="text/css" href="{{ asset('user/assets/css/font-awesome.css') }}" />
-<!-- themify -->
-<link rel="stylesheet" type="text/css" href="{{ asset('user/assets/css/themify-icons.css') }}" />
-<!-- slick -->
-<link rel="stylesheet" type="text/css" href="{{ asset('user/assets/css/slick.css') }}" />
-<!-- slick -->
-<link rel="stylesheet" type="text/css" href="{{ asset('user/assets/css/slick-theme.css') }}" />
-<!-- REVOLUTION LAYERS STYLES -->
-<link rel="stylesheet" type="text/css" href="{{ asset('user/assets/css/magnific-popup.css') }}" />
-<!-- megamenu -->
-<link rel="stylesheet" type="text/css" href="{{ asset('user/assets/css/megamenu.css') }}" />
-<!-- shortcodes -->
-<link rel="stylesheet" type="text/css" href="{{ asset('user/assets/css/shortcodes.css') }}" />
-<!-- main -->
-<link rel="stylesheet" type="text/css" href="{{ asset('user/assets/css/main.css') }}" />
-<!-- responsive -->
-<link rel="stylesheet" type="text/css" href="{{ asset('user/assets/css/responsive.css') }}" />
-<!-- Swiper CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+ <!-- Favicon -->
+ <link rel="shortcut icon" type="image/x-icon" href="{{ asset('user/assets/img/favicon.png') }}">
 
-<style>
-    .text-blue {
-        color: #2457aa;
-    }
-</style>
+ <!-- AOS CSS -->
+ <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+ <!-- Font Awesome 6 Free CDN -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+ <!-- Bootstrap CSS -->
+ <link rel="stylesheet" href="{{ asset('user/assets/css/bootstrap.min.css') }}">
+ <!-- Custom CSS -->
+ <link rel="stylesheet" href="{{ asset('user/assets/css/style.css') }}">
+
+ <!-- Owl Carousel CSS -->
+ <link rel="stylesheet" href="{{ asset('user/assets/vendor/OwlCarousel/owl.carousel.min.css') }}">
+ <link rel="stylesheet" href="{{ asset('user/assets/vendor/OwlCarousel/owl.theme.default.min.css') }}">
+ <!-- Nivo slider CSS -->
+ <link rel="stylesheet" href="{{ asset('user/assets/vendor/slider/css/nivo-slider.css') }}" />
+
+ {{-- <link rel="stylesheet" href="./css/bootstrap.min.css">
+ <link rel="stylesheet" href="style.css"> --}}
+
+ {{-- <link rel="stylesheet" href="vendor/OwlCarousel/owl.carousel.min.css">
+ <link rel="stylesheet" href="vendor/OwlCarousel/owl.theme.default.min.css">
+ <link rel="stylesheet" href="vendor/slider/css/nivo-slider.css"> --}}
+
+ {{--
+ <!-- Normalize CSS -->
+ <link rel="stylesheet" href="{{ asset('user/assets/css/normalize.css') }}">
+ <!-- Main CSS -->
+ <link rel="stylesheet" href="{{ asset('user/assets/css/main.css') }}">
+ <!-- Bootstrap CSS -->
+ <link rel="stylesheet" href="{{ asset('user/assets/css/bootstrap.min.css') }}">
+ <!-- Animate CSS -->
+ <link rel="stylesheet" href="{{ asset('user/assets/css/animate.min.css') }}">
+ <!-- Fontawesome CSS -->
+ <link rel="stylesheet" href="{{ asset('user/assets/css/fontawesome-all.min.css') }}">
+ <!-- Flaticon CSS -->
+ <link rel="stylesheet" href="{{ asset('user/assets/css/fonts/flaticon.css') }}">
+ <link rel="stylesheet" href="{{ asset('user/assets/css/font/flaticon.css') }}">
+ <!-- Meanmenu CSS -->
+ <link rel="stylesheet" href="{{ asset('user/assets/css/meanmenu.min.css') }}">
+ <!-- Magnific Popup CSS -->
+ <link rel="stylesheet" href="{{ asset('user/assets/css/magnific-popup.css') }}">
+ <!-- Owl Carousel CSS -->
+ <link rel="stylesheet" href="{{ asset('user/assets/vendor/OwlCarousel/owl.carousel.min.css') }}">
+ <link rel="stylesheet" href="{{ asset('user/assets/vendor/OwlCarousel/owl.theme.default.min.css') }}">
+ <!-- Nivo slider CSS -->
+ <link rel="stylesheet" href="{{ asset('user/assets/vendor/slider/css/nivo-slider.css') }}" />
+ <!-- Elements CSS -->
+ <link rel="stylesheet" href="{{ asset('user/assets/css/elements.css') }}">
+ <!-- Custom CSS -->
+ <link rel="stylesheet" href="{{ asset('user/assets/css/style.css') }}"> --}}
+
+ <style>
+     .text-blue {
+         color: #2457aa;
+     }
+ </style>

@@ -7,6 +7,8 @@ use App\Mail\ContactFormSubmitted;
 use App\Mail\QuoteFormSubmitted;
 use App\Models\Category;
 use App\Models\Contact;
+use App\Models\GalleryCategory;
+use App\Models\GalleryImage;
 use App\Models\Product;
 use App\Models\Product_Image;
 use App\Models\ProductFeature;
@@ -30,29 +32,32 @@ class ClientController extends Controller
         $categories = Category::all(); // Fetch all categories
         return view('user.about', compact('categories'));
     }
-    public function product()
+
+    public function service()
     {
         $categories = Category::all(); // Fetch all categories
+        return view('user.services', compact('categories'));
+    }
+
+    public function product()
+    {
+        // $categories = Category::all(); // Fetch all categories
+        $categories = Category::withCount('products')->get(); // Includes product count for each category
         $products = Product::all(); // Fetch all products
 
         return view('user.product', compact('categories', 'products'));
     }
 
-    // public function product_details($id)
-    // {
-    //     $categories = Category::all(); // Fetch all categories
-    //     $product = Product::findOrFail($id); // Fetch the single product by ID
-    //     $product_images = Product_Image::where('product_id', $id)->get(); // Fetch product images
-    //     $product_feature = ProductFeature::where('product_id', $id)->get(); // Fetch product features
+    // gallery
 
-    //     // Fetch related products based on category, excluding the current product
-    //     $related_products = Product::where('category_id', $product->category_id)
-    //         ->where('id', '!=', $id)
-    //         // ->limit(1) // You can adjust the limit as needed
-    //         ->get();
+    public function gallery()
+    {
+        $categories = Category::all(); // Fetch all categories
+        $gallery_categories = GalleryCategory::all();
+        $gallery_images = GalleryImage::with('category')->where('status', 1)->get();
 
-    //     return view('user.product_details', compact('categories', 'product', 'product_images', 'product_feature', 'related_products'));
-    // }
+        return view('user.gallery', compact('categories', 'gallery_categories', 'gallery_images'));
+    }
 
     public function product_details($slug)
     {

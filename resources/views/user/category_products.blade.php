@@ -14,12 +14,14 @@
     @include('user.layouts.link')
     <style>
         li.active {
-            background-color: #2457aa;
-
+            /* background-color: #2457aa; */
+            color: #2457aa
         }
 
         li.active a {
-            color: white !important;
+            /* background-color: #2457aa; */
+            color: #2457aa !important;
+            font-weight: 700 !important;
         }
 
         .discount_price.product-Price-amount {
@@ -33,61 +35,99 @@
 
 <body>
     <!-- preloader start-->
-    @include('user.layouts.loader')
+    {{-- @include('user.layouts.loader') --}}
     <!-- preloader start end-->
-    <!--page start-->
+
+    <!--header start-->
+    @include('user.layouts.header', ['categories' => $categories])
+    <!--header end-->
+
+
+
+
+    <!-- scrollUp Start Here -->
+    <a href="#wrapper" data-type="section-switch" class="scrollUp">
+        <i class="fas fa-angle-double-up"></i>
+    </a>
+    <!-- scrollUp End Here -->
     <div class="page">
 
-        <!--header start-->
-        @include('user.layouts.header', ['categories' => $categories])
-        <!--header end-->
-        <!-- page-title -->
-        <div class="ttm-page-title-row">
+        <!-- Inner Page Banner Area Start Here -->
+        <section class="inner-page-banner bg-common inner-page-top-margin"
+            style="background-image: url({{ asset('user/assets/img/about/br.png') }});background-size: cover;background-position: right;background: #016db2;">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="d-flex flex-column justify-content-center align-items-center">
-                            <div class="page-title-heading">
-                                <h1 class="title">Shop</h1>
-                            </div>
-                            <div class="breadcrumb-wrapper mt-2">
-                                <span class="mr-1"><i class="ti ti-home"></i></span>
-                                <a title="Homepage" href="{{ route('home') }}">Home</a>
-                                <span class="ttm-bread-sep">&nbsp;/&nbsp;</span>
-                                <span class="ttm-textcolor-skincolor">Shop</span>
-                            </div>
+                    <div class="col-12">
+                        <div class="breadcrumbs-area">
+                            <h1>Categories Details</h1>
+                            <ul>
+                                <li>
+                                    <a href="{{ route('home') }}">Home</a>
+                                </li>
+                                <li>Categories Details</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </div><!-- page-title end-->
+        </section>
+        <!-- Inner Page Banner Area End Here -->
+
+
+
 
         <!--site-main start-->
-        <div class="site-main">
+        <div class="site-main my-5">
 
 
             <!-- sidebar -->
-            <section class="sidebar ttm-sidebar-left clearfix">
+            <section class="sidebar ttm-sidebar-left clearfix mb-5">
                 <div class="container">
                     <!-- row -->
                     <div class="row">
                         <div class="col-lg-3 widget-area sidebar-left">
-                            <aside class="widget menu-content">
-                                {{-- <h3 class="widget-title">All Categories</h3> --}}
-                                {{-- <a href="{{ route('product') }}">All</a> --}}
 
-                                <ul class="menu-vertical">
-                                    <li class="{{ request()->routeIs('product') ? 'active' : '' }}">
-                                        <a href="{{ route('product') }}" class="text-uppercase">All
-                                            Categories</a>
-                                    </li>
-                                    @foreach ($categories as $category)
-                                        <li class="{{ request()->segment(2) == $category->name ? 'active' : '' }}">
-                                            <a href="{{ route('category.products', $category->name) }}"
-                                                class="text-uppercase">{{ $category->name }}</a>
+
+
+
+
+
+
+
+                            <aside class="widget menu-content">
+
+                                <div class="widget widget-categories">
+                                    <h3 class="section-title title-bar-primary">Categories</h3>
+                                    <ul class="menu-vertical">
+                                        {{-- <li class="{{ request()->routeIs('product') ? 'active' : '' }}">
+                                    <a href="{{ route('product') }}" class="text-uppercase">All Categories</a>
+                                </li> --}}
+                                        @foreach ($categories as $category)
+                                            <li
+                                                class="{{ request()->segment(2) == $category->name ? 'active' : '' }} text-capitalize">
+                                                <a href="{{ route('category.products', $category->name) }}">
+                                                    {{ $category->name }}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+
+                                    {{-- <ul class="menu-vertical">
+                                        <li class="{{ request()->routeIs('product') ? 'active' : '' }}">
+                                            <h4 class="mb-0 mb-4">
+                                                <a href="{{ route('product') }}" class="text-uppercase text-dark">All
+                                                    Categories</a>
+                                            </h4>
+
                                         </li>
-                                    @endforeach
-                                </ul>
+                                        @foreach ($categories as $category)
+                                            <li class="{{ request()->segment(2) == $category->name ? 'active' : '' }}"
+                                                style="border-bottom:2px solid rgba(232, 232, 232, 0.79)">
+                                                <a href="{{ route('category.products', $category->name) }}"
+                                                    class="text-uppercase">{{ $category->name }}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul> --}}
                             </aside>
                         </div>
                         <div class="col-lg-9 content-area">
@@ -96,81 +136,77 @@
                                 <div class="ttm-tabs">
                                     <div class="content-sec-head-style">
                                         <div class="content-area-sec-title">
-                                            <h5>Our Products</h5>
+                                            <h3>Our Products</h3>
                                         </div>
                                     </div>
-
-                                    {{-- <h4>
-                                        <h2>Products in {{ $category->name }}</h2>
-                                        <ul>
-                                            @foreach ($products as $product)
-                                                <li>{{ $product->name }} - ${{ $product->price }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </h4> --}}
                                     <div class="content-tab">
                                         <div class="content-inner">
                                             <div class="products row">
 
                                                 @if ($products->count() > 0)
-
-
                                                     @foreach ($products as $product)
-                                                        <!-- product -->
-                                                        <div class="product col-md-4 col-sm-6 col-xs-12">
-                                                            <a href="{{ route('product_details', $product->slug) }}">
-                                                                <div class="product-box">
-                                                                    <!-- product-box-inner -->
-                                                                    <div class="product-box-inner">
-                                                                        <div class="product-image-box">
-                                                                            @if ($product->is_new)
-                                                                                <div class="onsale">
-                                                                                    {{ $product->is_new ? 'New' : '' }}
-                                                                                </div>
-                                                                            @endif
+                                                        <a href="{{ route('product_details', $product->slug) }}">
+                                                            <!-- product -->
+                                                            <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6 col-12">
+                                                                <div class="shop-box-layout1 margin-b-30">
+                                                                    <div class="item-img">
+                                                                        <img src="/storage/{{ $product->thumbnail }}"
+                                                                            alt="{{ $product->name }}">
 
-                                                                            @if ($product->is_trending)
-                                                                                <div class="trending">
-                                                                                    {{ $product->is_trending ? 'Trending' : '' }}
-                                                                                </div>
-                                                                            @endif
-                                                                            <img class="img-fluid pro-image-front "
-                                                                                src="/storage/{{ $product->thumbnail }}"
-                                                                                alt="{{ $product->name }}">
+                                                                    </div>
+                                                                    <div class="item-content">
+                                                                        <h4 class="item-title">
+                                                                            <a href="">{{ $product->name }}</a>
+                                                                        </h4>
+                                                                        <div class="rate-items">
+                                                                            <div class="star-ratings">
+                                                                                @if ($product->rating > 0)
+                                                                                    @php
+                                                                                        $averageRating = round(
+                                                                                            $product->rating,
+                                                                                        ); // Round the rating to the nearest integer
+                                                                                    @endphp
+                                                                                    @for ($i = 1; $i <= 5; $i++)
+                                                                                        <i
+                                                                                            class="fas fa-star {{ $i <= $averageRating ? 'text-warning' : 'text-secondary' }}"></i>
+                                                                                    @endfor
+                                                                                @endif
+                                                                            </div>
+                                                                            {{-- <div class="rate-item">
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="rate-item">
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="rate-item">
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="rate-item">
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="rate-item">
+                                                <i class="fas fa-star"></i>
+                                            </div> --}}
                                                                         </div>
-                                                                    </div><!-- product-box-inner end -->
-                                                                    <div class="product-content-box">
-                                                                        <h6 class="text-blue">{{ $product->name }}
-                                                                        </h6>
-                                                                        <div class="star-ratings">
-                                                                            @if ($product->rating > 0)
-                                                                                @php
-                                                                                    $averageRating = round(
-                                                                                        $product->rating,
-                                                                                    ); // Round the rating to the nearest integer
-                                                                                @endphp
-                                                                                @for ($i = 1; $i <= 5; $i++)
-                                                                                    <i
-                                                                                        class="fa-solid fa-star {{ $i <= $averageRating ? 'text-warning' : 'text-secondary' }}"></i>
-                                                                                @endfor
-                                                                            @endif
-                                                                        </div>
-                                                                        <span class="price">
+                                                                        {{-- <div class="item-price">
+
                                                                             @if ($product->discount_price)
-                                                                                <ins>
+                                                                                <del>
                                                                                     <span
                                                                                         class="product-Price-amount me-3">
+                                                                                        <span
+                                                                                            class="product-Price-currencySymbol text-no">Rs.</span>
+                                                                                        {{ $product->price }}
+                                                                                    </span>
+                                                                                </del>
+                                                                                <ins>
+                                                                                    <span
+                                                                                        class="product-Price-amount mx-3">
                                                                                         <span
                                                                                             class="product-Price-currencySymbol">Rs.</span>
                                                                                         {{ $product->discount_price }}
                                                                                     </span>
                                                                                 </ins>
-                                                                                <span
-                                                                                    class=" discount_price product-Price-amount me-3 ">
-                                                                                    <span
-                                                                                        class="product-Price-currencySymbol">Rs.</span>
-                                                                                    {{ $product->price }}
-                                                                                </span>
                                                                             @else
                                                                                 <ins>
                                                                                     <span
@@ -181,12 +217,12 @@
                                                                                     </span>
                                                                                 </ins>
                                                                             @endif
-                                                                        </span>
+                                                                        </div> --}}
                                                                     </div>
                                                                 </div>
-                                                            </a>
-                                                        </div>
-                                                        <!-- product end -->
+                                                            </div>
+                                                            <!-- product end -->
+                                                        </a>
                                                     @endforeach
                                                 @else
                                                     <p class="text-left">No related products found.</p>
