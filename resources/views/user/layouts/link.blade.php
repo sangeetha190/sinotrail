@@ -1,4 +1,4 @@
- <!-- Favicon -->
+ {{-- <!-- Favicon -->
  <link rel="shortcut icon" type="image/x-icon" href="{{ asset('user/assets/img/favicon.png') }}">
 
  <!-- AOS CSS -->
@@ -15,6 +15,42 @@
  <link rel="stylesheet" href="{{ asset('user/assets/vendor/OwlCarousel/owl.theme.default.min.css') }}">
  <!-- Nivo slider CSS -->
  <link rel="stylesheet" href="{{ asset('user/assets/vendor/slider/css/nivo-slider.css') }}" />
+
+ --}}
+ <!-- Favicon -->
+ <link rel="shortcut icon" type="image/x-icon" href="{{ asset('user/assets/img/favicon.png') }}">
+
+ <!-- Link of CSS files -->
+ <link rel="stylesheet" href="{{ asset('user/assets/css/bootstrap.min.css') }}">
+ <link rel="stylesheet" href="{{ asset('user/assets/css/remixicon.css') }}">
+ <link rel="stylesheet" href="{{ asset('user/assets/css/flaticon_dolt.css') }}">
+ <link rel="stylesheet" href="{{ asset('user/assets/css/swiper.bundle.min.css') }}">
+ <link rel="stylesheet" href="{{ asset('user/assets/css/aos.css') }}">
+ <link rel="stylesheet" href="{{ asset('user/assets/css/header.css') }}">
+ <link rel="stylesheet" href="{{ asset('user/assets/css/style.css') }}">
+ <link rel="stylesheet" href="{{ asset('user/assets/css/footer.css') }}">
+ <link rel="stylesheet" href="{{ asset('user/assets/css/responsive.css') }}">
+ <link rel="stylesheet" href="{{ asset('user/assets/css/dark-theme.css') }}">
+ <!-- AOS CSS -->
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  {{-- <link rel="stylesheet" href="./css/bootstrap.min.css">
  <link rel="stylesheet" href="style.css"> --}}

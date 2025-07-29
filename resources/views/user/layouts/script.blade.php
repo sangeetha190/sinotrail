@@ -1,5 +1,53 @@
 {{-- script Starts --}}
-<!-- jquery-->
+
+
+<!-- Link of JS files -->
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="{{ asset('user/assets/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('user/assets/js/swiper.bundle.min.js') }}"></script>
+<script src="{{ asset('user/assets/js/aos.js') }}"></script>
+<script src="{{ asset('user/assets/js/fslightbox.js') }}"></script>
+<script src="{{ asset('user/assets/js/main.js') }}"></script>
+<!-- AOS JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init({
+        once: true,
+        duration: 1000,
+        easing: 'ease-in-out',
+    });
+</script>
+
+<script>
+    var myCarousel = new bootstrap.Carousel('#heroCarousel', {
+        interval: false,
+        wrap: false
+    })
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- =============================================================================================== --}}
+{{-- <!-- jquery-->
 <script src="{{ asset('user/assets/js/jquery-2.2.4.min.js') }}"></script>
 <!-- Plugins js -->
 <script src="{{ asset('user/assets/js/plugins.js') }}"></script>
@@ -29,13 +77,13 @@
 <!-- Smoothscroll Js -->
 <script src="{{ asset('user/assets/js/smoothscroll.min.js') }}"></script>
 <!-- Custom Js -->
-<script src="{{ asset('user/assets/js/main.js') }}"></script>
+<script src="{{ asset('user/assets/js/main.js') }}"></script> --}}
 {{-- script Ends --}}
 
 
 
 <!-- AOS JS -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
     AOS.init({
         duration: 1000, // Animation duration
@@ -91,9 +139,9 @@
             }
         });
     });
-</script>
+</script> --}}
 <!----scroll-animation------>
-<script>
+{{-- <script>
     window.addEventListener("scroll", function() {
         const header = document.querySelector(".site-header-menu-inner");
 
@@ -105,5 +153,5 @@
             header.classList.remove("fixed");
         }
     });
-</script>
+</script> --}}
 <!----scroll-animation------>
