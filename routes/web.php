@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('user.about');
 // });
 
+// hI
+
 Route::get('/', [ClientController::class, 'index'])->name('home');
 Route::get('about', [ClientController::class, 'about'])->name('about');
 Route::get('service', [ClientController::class, 'service'])->name('service');
