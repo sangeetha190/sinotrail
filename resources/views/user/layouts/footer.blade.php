@@ -1,5 +1,5 @@
 <!-- Footer Area Start Here -->
-<footer>
+{{-- <footer>
     <section class="footer-top-wrap">
         <div class="container">
             <div class="row">
@@ -83,7 +83,7 @@
             Reserved.<a target="_blank" href="#" rel="nofollow">
                 Syscorp</a></div>
     </section>
-</footer>
+</footer> --}}
 
 <footer class="footer-wrap style-one">
     <div class="footer-top pb-70">
@@ -177,7 +177,9 @@
         <span>The Theme Developed</span> by <a href="#">SyscorpTheme</a>
     </p>
 </footer>
-
+<button type="button" id="backtotop" class="position-fixed text-center border-0 p-0">
+    <i class="ri-arrow-up-line"></i>
+</button>
 <!-- Footer End -->
 
 

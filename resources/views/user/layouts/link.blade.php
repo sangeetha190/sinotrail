@@ -20,6 +20,8 @@
  <!-- Favicon -->
  <link rel="shortcut icon" type="image/x-icon" href="{{ asset('user/assets/img/favicon.png') }}">
 
+ <!-- Font Awesome 6 Free CDN -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
  <!-- Link of CSS files -->
  <link rel="stylesheet" href="{{ asset('user/assets/css/bootstrap.min.css') }}">
  <link rel="stylesheet" href="{{ asset('user/assets/css/remixicon.css') }}">
